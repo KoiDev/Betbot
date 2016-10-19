@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="1000dp"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:clickable="true">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/gray_pressed"
+        android:text="@string/dialog_main_search_filter"
+        android:gravity="center_vertical"
+        android:paddingLeft="12dp"
+        android:textColor="#000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+
+        <Button
+            android:id="@+id/main_dialog_forecast_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="ПРОГНОЗ"
+            android:background="@drawable/rounded_buttom"
+            android:textColor="#000"
+            android:padding="12dp"
+            android:gravity="left|center_vertical"
+            android:drawableRight="@drawable/ic_arrow_drop_down_white_24dp"/>
+
+        <LinearLayout
+            android:id="@+id/main_dialog_group1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="ПРОФИ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="НОВИЧКИ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+
+        <Button
+            android:id="@+id/main_dialog_sports_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="ВИДЫ СПОРТА"
+            android:background="@drawable/rounded_buttom"
+            android:textColor="#000"
+            android:padding="12dp"
+            android:gravity="left|center_vertical"
+            android:drawableRight="@drawable/ic_arrow_drop_down_white_24dp"/>
+
+        <LinearLayout
+            android:id="@+id/main_dialog_group2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="ФУТБОЛ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="ХОККЕЙ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="БАСКЕТБОЛ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="ТЕННИС"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="БЕЙСБОЛ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@color/black_overlay"/>
+
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="0.99"
+                    android:layout_height="match_parent"
+                    android:text="ВОЛЕЙБОЛ"
+                    android:gravity="left|center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="12dp"
+                    android:textColor="#000"
+                    android:clickable="true"/>
+
+                <View
+                    android:layout_width="0.2dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.2dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/black_overlay"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/main_dialog_find_btn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="12dp"
+        android:text="НАЙТИ"
+        android:textColor="@color/white"
+        android:background="@drawable/btn_blue"/>
+
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/top_forecast_details_prognosticator_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="35dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/top_forecast_details_prognosticator"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.35"
+            android:text="TennisWorldTour"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.002"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay"/>
+
+        <TextView
+            android:id="@+id/top_forecast_details_forecast_cv"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:text="ФОРА1(-1)"
+            android:textColor="@color/colorPrimary"
+            android:maxLines="2"
+            android:gravity="center"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.002"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay"/>
+
+        <TextView
+            android:id="@+id/top_forecast_details_percent_cv"
+            android:layout_width="0dp"
+            android:layout_weight="0.13"
+            android:layout_height="match_parent"
+            android:text="69%"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="0.002"
+            android:layout_height="match_parent"
+            android:background="@color/black_overlay"/>
+
+        <TextView
+            android:id="@+id/top_forecast_details_profit_cv"
+            android:layout_width="0dp"
+            android:layout_weight="0.18"
+            android:layout_height="match_parent"
+            android:text="+181.9%"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="12sp"/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

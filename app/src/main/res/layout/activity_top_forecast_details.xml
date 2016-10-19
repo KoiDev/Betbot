@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_top_forecast_details"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.gmgspb.betbot.forecasttop.view.TopForecastDetails">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:scrollbars="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="ТОВАРИЩЕСКИЕ МАТЧИ. СБОРНЫЕ"
+            android:textColor="#000"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="20dp"
+            android:background="#f5f5f5">
+
+            <ImageView
+                android:id="@+id/robobet_detail_com1_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/de_flag"
+                android:paddingLeft="55dp"
+                android:paddingTop="20dp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignEnd="@id/robobet_detail_com1_img"
+                android:layout_below="@id/robobet_detail_com1_img"
+                android:text="Германия"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_data_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="23.03.16 17:30"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:layout_below="@id/robobet_detail_data_txt"
+                android:text="2 : 4"
+                android:textColor="#000"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_status_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_below="@id/robobet_detail_count"
+                android:layout_centerHorizontal="true"
+                android:text="Завершен"/>
+
+            <ImageView
+                android:id="@+id/robobet_detail_com2_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="55dp"
+                android:paddingTop="20dp"
+                android:src="@drawable/it_flag"
+                />
+
+            <TextView
+                android:id="@+id/robobet_detail_com2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/robobet_detail_com1_txt"
+                android:layout_alignStart="@+id/robobet_detail_com2_img"
+                android:text="Италия"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/white"
+            android:layout_marginBottom="10dp">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0.2dp"
+                android:background="@color/black_overlay"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:text="Топ ставок общего раздела"
+                android:textSize="14sp"
+                android:textColor="@color/colorPrimary"
+                android:id="@+id/textView3" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="8dp"
+            android:layout_marginLeft="8dp"
+            android:background="@color/white">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_overlay"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:layout_margin="10dp"
+                android:text="Коэффициенты"
+                android:onClick="setBtnKf"
+                android:textColor="@color/white"
+                android:textAllCaps="true"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/black_overlay"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:orientation="horizontal"
+                android:background="@color/blue_for_table">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.35"
+                    android:text="Прогнозист"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="8dp"
+                    android:textSize="12sp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.002"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_overlay"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.3"
+                    android:layout_height="match_parent"
+                    android:text="Ставка"
+                    android:gravity="center"
+                    android:textSize="12sp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.002"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_overlay"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.13"
+                    android:layout_height="match_parent"
+                    android:text="Проход"
+                    android:gravity="center"
+                    android:textSize="12sp"/>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="0.002"
+                    android:layout_height="match_parent"
+                    android:background="@color/black_overlay"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="0.18"
+                    android:layout_height="match_parent"
+                    android:text="Прибыль"
+                    android:gravity="center"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/activity_top_forecast_details_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+
+            <TextView
+                android:id="@+id/top_forecast_details_more_btn"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:background="@color/hint"
+                android:text="Показать ещё"
+                android:textSize="14sp"
+                android:clickable="true"
+                android:gravity="center"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

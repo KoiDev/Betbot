@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cv_main_express"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/dialogforecasts_subback6"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/main_cv_exp_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23.03.16 17:35"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/main_cv_exp_home_img"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:src="@drawable/de_flag"/>
+
+        <TextView
+            android:id="@+id/main_cv_exp_home_txt"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="Германия"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.05"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="-"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/main_cv_exp_away_txt"
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="wrap_content"
+            android:text="Италия"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/main_cv_exp_away_img"
+            android:layout_width="0dp"
+            android:layout_weight="0.15"
+            android:layout_height="40dp"
+            android:layout_marginLeft="12dp"
+            android:layout_gravity="center"
+            android:src="@drawable/de_flag"/>
+    </LinearLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black_overlay"/>
+
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

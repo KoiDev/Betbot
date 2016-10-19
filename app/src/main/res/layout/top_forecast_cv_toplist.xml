@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/top_forecast_cv_toplist"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/top_forecast_cv_data"
+            app:layout_widthPercent="15%"
+            app:layout_heightPercent="99.8%"
+            android:text="29.03\n2016"
+            android:maxLines="2"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="#4c4c4c"/>
+
+        <View
+            android:id="@+id/top_forecast_cv_about_line1"
+            app:layout_widthPercent="0.2%"
+            app:layout_heightPercent="99.8%"
+            android:layout_toEndOf="@id/top_forecast_cv_data"
+            android:background="#e0e0e0"/>
+
+        <TextView
+            android:id="@+id/top_forecast_cv_coms"
+            app:layout_widthPercent="65%"
+            app:layout_heightPercent="49.9%"
+            android:layout_toEndOf="@id/top_forecast_cv_about_line1"
+            android:layout_alignParentTop="true"
+            android:text="Анахайм - Калгари"
+            android:textColor="#01579b"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="8dp"            />
+
+        <TextView
+            android:id="@+id/top_forecast_cv_leagua"
+            app:layout_widthPercent="65%"
+            app:layout_heightPercent="49.9%"
+            android:layout_toEndOf="@id/top_forecast_cv_about_line1"
+            android:layout_below="@id/top_forecast_cv_coms"
+            android:text="Хоккей / NHL. Регулярный"
+            android:textColor="#4c4c4c"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="8dp"            />
+
+        <View
+            android:id="@+id/top_forecast_cv_about_line2"
+            app:layout_widthPercent="0.2%"
+            app:layout_heightPercent="99.8%"
+            android:layout_toEndOf="@id/top_forecast_cv_coms"
+            android:background="#e0e0e0"/>
+
+
+        <TextView
+            android:id="@+id/top_forecast_cv_count"
+            app:layout_widthPercent="20%"
+            app:layout_heightPercent="99.8%"
+            android:layout_toEndOf="@id/top_forecast_cv_about_line2"
+            android:text="+112"
+            android:textColor="#689f38"
+            android:gravity="center"/>
+
+        <View
+            android:id="@+id/top_forecast_cv_about_line3"
+            android:background="#e0e0e0"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_alignBottom="@+id/top_forecast_cv_data"
+            android:layout_toStartOf="@+id/top_forecast_cv_about_line2"
+            android:layout_alignParentEnd="true"/>
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.v7.widget.CardView>

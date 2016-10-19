@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"    >
+
+        <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/forecasts_search"
+            android:title="Поиск прогнозов"
+            android:icon="@drawable/icon_search"/>
+        <item
+            android:id="@+id/robobet"
+            android:title="Робобет"
+            android:icon="@drawable/ic_robobet" />
+        <item
+            android:id="@+id/top_rates"
+            android:title="Топ ставки"
+            android:icon="@drawable/ic_top" />
+        <item
+            android:id="@+id/forecasts_feed"
+            android:title="Лента прогнозов"
+            android:icon="@drawable/ic_rss" />
+        <item
+            android:id="@+id/live"
+            android:title="Результаты LIVE"
+            android:icon="@drawable/ic_live" />
+        <item
+            android:id="@+id/message"
+            android:title="Сообщения"
+            android:icon="@drawable/ic_message" />
+        <item
+            android:id="@+id/game_analysis"
+            android:title="Анализ игр"
+            android:icon="@drawable/ic_graphic" />
+        <item
+            android:id="@+id/players_rankings"
+            android:title="Рейтинг игроков"
+            android:icon="@drawable/ic_cup" />
+        <item
+            android:id="@+id/bukmakers_rankings"
+            android:title="Рейтинг букмекеров"
+            android:icon="@drawable/ic_bag" />
+
+        </group>
+
+</menu>

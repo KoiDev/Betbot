@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_robobet_detail"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/gray_pressed"
+    tools:context="ru.gmgspb.betbot.robobet.view.RobobetDetail">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include layout="@layout/toolbar"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical">
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:text="ТОВАРИЩЕСКИЕ МАТЧИ. СБОРНЫЕ"
+            android:textColor="#000"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"/>
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:paddingBottom="20dp"
+            android:background="#f5f5f5">
+
+            <ImageView
+                android:id="@+id/robobet_detail_com1_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/de_flag"
+                android:paddingLeft="55dp"
+                android:paddingTop="20dp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com1_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_alignEnd="@id/robobet_detail_com1_img"
+                android:layout_below="@id/robobet_detail_com1_img"
+                android:text="Германия"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_data_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="23.03.16 17:30"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:layout_below="@id/robobet_detail_data_txt"
+                android:text="2 : 4"
+                android:textColor="#000"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_status_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_below="@id/robobet_detail_count"
+                android:layout_centerHorizontal="true"
+                android:text="Завершен"/>
+
+            <ImageView
+                android:id="@+id/robobet_detail_com2_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingRight="55dp"
+                android:paddingTop="20dp"
+                android:src="@drawable/it_flag"
+                />
+
+            <TextView
+                android:id="@+id/robobet_detail_com2_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/robobet_detail_com1_txt"
+                android:layout_alignStart="@+id/robobet_detail_com2_img"
+                android:text="Италия"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/robobet_detail_lay11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay1"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:background="@drawable/edittextstyle_forecasts"
+            >
+
+            <TextView
+                android:id="@+id/robobet_detail_com11_txt"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:gravity="center"
+                android:text="П1 - "
+                android:textColor="#000"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com11_per_txt"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="44%"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:background="#e8f5e9"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay2"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:layout_toEndOf="@id/robobet_detail_lay1"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/robobet_detail_draw_per"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Ничья - "
+                android:textColor="#000"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_draw_per_txt"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="32%"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:background="#f5f5f5"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:layout_toEndOf="@id/robobet_detail_lay2"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            >
+
+            <TextView
+                android:id="@+id/robobet_detail_com21_txt"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="П2 - "
+                android:textColor="#000"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com21_per_txt"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:text="32%"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:background="#f5f5f5"
+                android:gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/robobet_detail_lay21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp">
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay4"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            >
+
+            <TextView
+                android:id="@+id/robobet_detail_com1_kf_txt"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Коэф-"
+                android:textColor="#000"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com1_kf_per_txt"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="1.82"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay5"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:layout_toEndOf="@id/robobet_detail_lay1"
+            android:background="@drawable/edittextstyle_forecasts"
+            >
+
+            <TextView
+                android:id="@+id/robobet_detail_draw_kf"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Коэф - "
+                android:textColor="#000"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_draw__kf_per_txt"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:text="3.20"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/robobet_detail_lay6"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="0.333"
+            android:layout_toEndOf="@id/robobet_detail_lay2"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            >
+
+            <TextView
+                android:id="@+id/robobet_detail_com2_kf_txt"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:gravity="center_vertical|right"
+                android:text="Коэф - "
+                android:textColor="#000"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/robobet_detail_com22_per_txt"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_gravity="left|center_vertical"
+                android:layout_marginRight="10dp"
+                android:text="4.20"
+                android:textColor="#000"
+                android:textSize="14sp"
+                android:gravity="center"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginRight="9dp"
+        android:background="#e8f5e9"
+        android:text="Ставка - 1Х"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#689f38"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/white"/>
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

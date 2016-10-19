@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="320dp"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+
+
+        <TextView
+            android:id="@+id/dforch_kindsofsports"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/dialogforecasts_backbig5"
+            android:drawableRight="@drawable/ic_arrow"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:text="@string/dforch_kindsofsports"            />
+
+        <RadioGroup
+            android:id="@+id/dforch_radiobutt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:paddingLeft="10dp"
+            android:background="@color/dialogforecasts_subback6">
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_opened"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dforch_kindsofsports_opened"
+                android:textSize="14sp"
+                android:textColor="@color/dialogforecasts_subtxtcolor"/>
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_started"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/dforch_kindsofsports_started"
+                android:textColor="@color/dialogforecasts_subtxtcolor"       />
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_winning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="@string/dforch_kindsofsports_winning"
+                android:textColor="@color/dialogforecasts_subtxtcolor"   />
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_losing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dforch_kindsofsports_losing"
+                android:textSize="14sp"
+                android:textColor="@color/dialogforecasts_subtxtcolor"   />
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_allended"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dforch_kindsofsports_allended"
+                android:textSize="14sp"
+                android:textColor="@color/dialogforecasts_subtxtcolor"   />
+
+            <RadioButton
+                android:id="@+id/dforch_kindsofsports_notcalculated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/dforch_kindsofsports_notcalculated"
+                android:textSize="14sp"
+                android:textColor="@color/dialogforecasts_subtxtcolor"    />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/dforch_typeforecasts"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_typeforecasts"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"/>
+
+        <RelativeLayout
+            android:id="@+id/dforch_box_typeforecasts"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:visibility="gone"
+            android:paddingLeft="10dp"
+            android:background="@color/dialogforecasts_subback6">
+
+            <EditText
+                android:id="@+id/dforch_box_typeforecasts_from"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:background="@color/white"      />
+
+            <TextView
+                android:text="@string/dforch_box_typeforecasts_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:layout_centerVertical="true"
+                android:layout_alignStart="@+id/dforch_box_typeforecasts_from"
+                android:id="@+id/textView" />
+
+            <EditText
+                android:id="@+id/dforch_box_typeforecasts_before"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="50dp"
+                android:gravity="center"
+                android:background="@color/white"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/dforch_box_typeforecasts_from"
+                android:layout_marginStart="10dp" />
+
+            <TextView
+                android:text="@string/dforch_box_typeforecasts_before"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:id="@+id/textView2"
+                android:layout_alignBaseline="@+id/textView"
+                android:layout_alignBottom="@+id/textView"
+                android:layout_alignStart="@+id/dforch_box_typeforecasts_before" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/dforch_profitforecaster"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_profitforecaster"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"/>
+
+        <TextView
+            android:id="@+id/dforch_roi"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_roi"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"   />
+
+        <TextView
+            android:id="@+id/dforch_passability"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_passability"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5" />
+
+        <TextView
+            android:id="@+id/dforch_category"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_category"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5" />
+
+        <TextView
+            android:id="@+id/dforch_bank"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_bank"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5" />
+
+        <TextView
+            android:id="@+id/dforch_ratetype"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_ratetype"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"    />
+
+        <TextView
+            android:id="@+id/dforch_coefficient"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_coefficient"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5" />
+
+        <TextView
+            android:id="@+id/dforch_amountforecasts"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_amountforecasts"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"  />
+
+        <TextView
+            android:id="@+id/dforch_sorting"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_sorting"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"  />
+
+        <TextView
+            android:id="@+id/dforch_nextmatches"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_nextmatches"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"    />
+
+        <TextView
+            android:id="@+id/dforch_lastmatches"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_lastmatches"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"   />
+
+        <TextView
+            android:id="@+id/dforch_date"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:layout_marginTop="2dp"
+            android:text="@string/dforch_date"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"    />
+
+        <TextView
+            android:id="@+id/dforch_eventnumber"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:drawableRight="@drawable/ic_arrow"
+            android:text="@string/dforch_eventnumber"
+            android:layout_marginTop="2dp"
+            android:padding="15dp"
+            android:textSize="16sp"
+            android:textColor="@color/dialogforecasts_txtbig"
+            android:background="@color/dialogforecasts_backbig5"   />
+
+        <Button
+            android:id="@+id/dforch_btn"
+            android:layout_width="250dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="@string/dforch_btn"
+            android:textColor="@color/white"
+            android:background="@drawable/dialog_forc_btn"
+            android:textAllCaps="true"        />
+
+    </LinearLayout>
+
+</ScrollView>

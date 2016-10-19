@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name">ВПрогнозе</string>
+    <string name="drawer_open">drawerr open</string>
+    <string name="drawer_close">drawerr close</string>
+
+    <string name="app_signig.txtedit.login">Логин</string>
+    <string name="app_signin.txtedit.password">Пароль</string>
+    <string name="app_signin.btn.sign">Вход</string>
+    <string name="app_signin.btn.register">Регистрация</string>
+    <string name="app_signin.btn.backup_password">Забыли пароль?</string>
+    <string name="app_signin.btn.signin_anonimus">Пропустить</string>
+    <string name="app_signin.btn.signin_google">Вход через Google</string>
+    <string name="app_signin.txt.or">или</string>
+
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app_forgotpas.edittxt.email">Email</string>
+    <string name="app_forgotpas.txt.infoemail">На указанный email будет отправлено сообщение с паролем</string>
+    <string name="app_forgotpas.btn.send">Отправить запрос</string>
+    <string name="app_reg.btn.correctlogin">Проверить логин</string>
+    <string name="app_signig.txtedit.pass">Пароль</string>
+    <string name="app_signig.txtedit.replogin">Повторите пароль</string>
+    <string name="app_reg.btn.registr">Зарегистрироваться</string>
+    <string name="title_activity_search_forecast">SearchForecastActivity</string>
+    <string name="app_forecast.txtedit.search">Введите слово для поиска</string>
+    <string name="app_forecast.btn.send">Найти</string>
+    <string name="dforch_kindsofsports">Вид спорта</string>
+    <string name="dforch_kindsofsports_opened">Открытые</string>
+    <string name="dforch_kindsofsports_started">Начались</string>
+    <string name="dforch_kindsofsports_winning">Выигрышные</string>
+    <string name="dforch_kindsofsports_losing">Проигрышные</string>
+    <string name="dforch_kindsofsports_allended">Все закончившиеся</string>
+    <string name="dforch_kindsofsports_notcalculated">Все не рассчитанные</string>
+    <string name="dforch_typeforecasts">Тип прогноза</string>
+    <string name="dforch_box_typeforecasts_from">от</string>
+    <string name="dforch_box_typeforecasts_before">до</string>
+    <string name="dforch_profitforecaster">Прибыль прогнозиста %</string>
+    <string name="dforch_roi">ROI за текущий месяц %</string>
+    <string name="dforch_passability">Проходимость %</string>
+    <string name="dforch_category">Категория прогнозов</string>
+    <string name="dforch_bank">Банк прогнозиста от</string>
+    <string name="dforch_ratetype">Тип ставки</string>
+    <string name="dforch_coefficient">Коэффицинт</string>
+    <string name="dforch_amountforecasts">Количество прогнозов всего у прогнозиста от</string>
+    <string name="dforch_sorting">Сортировка</string>
+    <string name="dforch_nextmatches">Ближайшие матчи</string>
+    <string name="dforch_lastmatches">Прошедшие матчи</string>
+    <string name="dforch_date">Прогнозы на дату</string>
+    <string name="dforch_eventnumber">Кол-событий в экспрессе</string>
+    <string name="dforch_btn">Искать по параметрам</string>
+    <string name="robobet_txt_match">Матч</string>
+    <string name="robobet_txt_forecatch">Прогноз\n1X2</string>
+    <string name="robobet_txt_kf">Кф\n1X2</string>
+    <string name="robobet_txt_rate">Ставка</string>
+    <string name="robobet_txt_score">Счет</string>
+    <string name="robobet_info_algoritm"><b>ROBOBET</b> - это алгоритм прогнозирования с искусственным интеллектом, где робот анализирует множество факторов,
+        перерабатывает различную информацию и складывает  ее в единое целое (Нейроновые сети). Робот показывает вероятность того или иного исхода в процентах.
+        Пример: Вероятность победы команды хозяев 55\u0025, вероятность ничьи 25\u0025 и победы гостей - 20\u0025, робот выставит П1 на хозяев. ROBOBET не анализирует
+        коэффициенты букмекерских контор, в основе только лежит статистический анализ данных из открытых источников. Алгоритм будет постоянно совершенствоваться
+        для улучшения качества прогнозов, поэтому рекомендуем добавить сервис в закладки.</string>
+    <string name="robobet_num_txt">Очки, цели, атака оборони, вратарь, полузащитник, центр поля, турнирная таблица и т. д.</string>
+    <string name="robobet_dinamic_txt">Успех команды или неудача на основе текущего выступления и силе.</string>
+    <string name="robobet_matmodel_txt">Модифицированая модель Диксона и Коулза, метод подобных оппонентов, метод приоритета последних матчей.</string>
+    <string name="robobet_index_txt">Анализ силы команды, учитывающий силу игроков, тренера, турнирное место команды, качество игры и т.д.</string>
+    <string name="robobet_tabel_txt">Динамика, стабильность, возможное место в конце сезона, и т.д.</string>
+    <string name="robobet_neyron_txt">Таким образом, система способна сравнивать данные, изучать и приспосабливаться построения начального анализа.</string>
+    <string name="robobet_news_txt">Трансферные новости, травмы, выбытие из игры игроков и т.д.</string>
+    <string name="robobet_study_txt">Ошибки, допущеные роботом при анализе, корректируються им самим же и в последуещем он переобучается автоматически.</string>
+    <string name="top_forecast_about_str"><b>Топ самых популярных ставок</b> - это самые популярные ставки на спортивные матчи, сжеданные прогнозиставми.
+        Для просмотра события необходимо нажать на матч, на графике будут видны найиболее вероятные исходы матча. Выбрав необходимый и интересующий матч,
+        Вы сможете сможете сделать ставки онлайн в букмекерской конторе. Топ ставки могут быть на чемпионат России, чемпионат Англии, чемпионат Европы и тд.</string>
+    <string name="dialog_main_search_filter">Выберите прогноз и вид спорта:</string>
+
+
+    <string-array name="sport_list">
+        <item>ФУТБОЛ</item>
+        <item>ХОККЕЙ</item>
+        <item>БАСКЕТБОЛ</item>
+        <item>ТЕННИС</item>
+        <item>БЕЙСБОЛ</item>
+        <item>ВОЛЕЙБОЛ</item>
+    </string-array>
+</resources>

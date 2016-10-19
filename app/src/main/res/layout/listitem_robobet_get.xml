@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv_robobet_list_get"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+
+        <TextView
+            android:layout_height="27dp"
+            app:layout_widthPercent="50%"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:id="@+id/robobet_com1"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:textColor="#01579b"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="50%"
+            android:layout_below="@+id/robobet_com1"
+            android:layout_alignParentStart="true"
+            android:id="@+id/robobet_com2"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_alignEnd="@+id/robobet_com1"
+            android:layout_height="27dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="3dp"
+            android:textColor="#01579b"/>
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="15%"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/robobet_com1"
+            android:id="@+id/robobet_com1_per"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_above="@+id/robobet_com2"/>
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="15%"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/robobet_com1"
+            android:layout_toEndOf="@+id/robobet_com2"
+            android:id="@+id/robobet_com2_per"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            app:layout_widthPercent="12%"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/robobet_com1_per"
+            android:id="@+id/robobet_com1_kf"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_above="@+id/robobet_com2"/>
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="12%"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/robobet_com1_per"
+            android:layout_toEndOf="@+id/robobet_com2_per"
+            android:id="@+id/robobet_com2_kf"
+            android:gravity="center"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="15%"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/robobet_com1_kf"
+            android:id="@+id/robobet_rate_txt"
+            android:gravity="center"
+            android:textColor="#90b96d"
+            android:textStyle="bold"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_alignParentBottom="true"/>
+
+        <TextView
+            android:text="TextView"
+            app:layout_widthPercent="8%"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/robobet_rate_txt"
+            android:id="@+id/robobet_count"
+            android:gravity="center"
+            android:textColor="#000"
+            android:background="@drawable/edittextstyle_forecasts"
+            android:layout_alignParentBottom="true"/>
+
+    </android.support.percent.PercentRelativeLayout>
+</android.support.v7.widget.CardView>

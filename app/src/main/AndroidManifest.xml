@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.gmgspb.betbot">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".registration.view.LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".registration.view.ForgotPasword_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".registration.view.RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".main.view.MainActivity"
+            android:label="Лента прогнозов"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".forecast.view.ForecastsSearchActivity"
+            android:label="ПОИСК ПРОГНОЗОВ"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".robobet.view.RobobetActivity"
+            android:label="РОБОБЕТ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".robobet.view.RobobetDetail"
+            android:label="ДЕТАЛИ ПРОГНОЗА"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".forecasttop.view.TopForecast"
+            android:label="ТОП СТАВКИ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".live.LiveActivity"
+            android:label="РЕЗУЛЬТАТЫ LIVE"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".message.MessageActivity"
+            android:label="СООБЩЕНИЯ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".analiz.AnalizActivivty"
+            android:label="АНАЛИЗ ИГР"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".player.RatingsPlayersActivivty"
+            android:label="РЕЙТИНГ ИГРОКОВ"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".bukmeker.RatingsBukmekerActivity"
+            android:label="РЕЙТИНГ БУКМЕКЕРОВ"
+            android:screenOrientation="portrait" />
+        <activity android:name=".forecasttop.view.TopForecastDetails" />
+        <activity
+            android:name=".forecasttop.view.TopForecastKf"
+            android:label="КОЭФФИЦИЕНТЫ"
+            android:screenOrientation="portrait" />
+        <activity android:name=".main.view.MainDetail"></activity>
+    </application>
+
+</manifest>

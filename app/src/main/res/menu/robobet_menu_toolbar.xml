@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/robobet_calendar_text"
+          android:title="01.10.2016"
+          app:showAsAction="always" />
+
+    <item android:id="@+id/robobet_calendar"
+          android:title="календарь"
+          android:icon="@drawable/white_calendar_default"
+          app:showAsAction="always"/>
+</menu>

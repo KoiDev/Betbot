@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_top_forecast"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ru.gmgspb.betbot.forecasttop.view.TopForecast"
+    android:background="@color/gray_pressed">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/top_forecast_spinner"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_buttom"
+                android:layout_weight="0.85"
+                android:spinnerMode="dropdown"
+                android:layout_gravity="center"
+                style="@android:style/Widget.Holo.Light.Spinner"
+                android:entries="@array/sport_list"/>
+
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.15"
+                android:src="@drawable/btn_topfor_calendar"
+                android:background="@color/white"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/about_line"
+            android:background="#000"
+            android:layout_width="match_parent"
+            android:layout_height="0.2dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="#c7d6e9">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.15"
+                android:text="Дата\nВремя"
+                android:gravity="center"
+                android:textColor="#000"/>
+
+            <View
+                android:id="@+id/about_line1"
+                android:background="#000"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.001" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.65"
+                android:text="Матч"
+                android:textColor="#000"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.001"
+                android:background="#000"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                android:text="Ставки"
+                android:textColor="#000"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <View
+            android:background="#e0e0e0"
+            android:layout_width="match_parent"
+            android:layout_height="0.3dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/top_forecast_rv_toplist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:textColor="#000"
+            android:text="@string/top_forecast_about_str"/>
+
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
