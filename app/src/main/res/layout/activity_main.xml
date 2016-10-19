@@ -7,131 +7,146 @@
     android:layout_height="wrap_content"
     android:background="@color/gray_pressed"
     android:orientation="vertical"
-    tools:context="ru.gmgspb.betbot.main.view.MainActivity">
+    tools:context="ru.gmgspb.betbot.main.view.MainActivity"    >
 
-
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_rv"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:text="Экспресс"
-        android:textColor="@color/white"
-        android:gravity="center_vertical"
-        android:paddingLeft="8dp"
-        android:textAllCaps="true"
-        android:background="@color/colorPrimary"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_rv_express"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="vertical">
-
+        android:layout_height="match_parent">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="8dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Итоговый коэфф.: "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="П2"/>
-        </LinearLayout>
+            android:orientation="vertical">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="8dp">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Сумма: "/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="250"/>
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/black_overlay"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/white">
-
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.15"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_ava"
-                android:layout_gravity="center"/>
 
             <TextView
-                android:id="@+id/main_cv_email_txt"
-                android:layout_width="0dp"
-                android:layout_weight="0.35"
-                android:layout_height="match_parent"
-                android:maxLines="1"
-                android:paddingRight="4dp"
-                android:text="biyekeshev@mail.ru"
-                android:gravity="center"
-                android:textColor="@color/colorPrimary"
-                android:textSize="13sp"
-                android:textStyle="bold"/>
-
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="0.002"
+                android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:layout_gravity="center"
-                android:background="@color/gray_pressed"/>
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:text="Экспресс"
+                android:textColor="@color/white"
+                android:gravity="center_vertical"
+                android:paddingLeft="8dp"
+                android:textAllCaps="true"
+                android:background="@color/colorPrimary"/>
 
-            <ImageView
-                android:layout_width="0dp"
-                android:layout_weight="0.15"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:src="@drawable/ic_chart_bar"/>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/main_rv_express"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_height="wrap_content"
+                />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_weight="0.35"
-                android:layout_height="match_parent"
-                android:text="1560 (-38.80%)"
-                android:textColor="#ff3632"
-                android:textSize="12sp"
-                android:textStyle="bold"
-                android:gravity="center"
-                android:id="@+id/main_cv_rating_txt" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Итоговый коэфф.: "/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="П2"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="8dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Сумма: "/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="250"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/black_overlay"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.15"
+                        android:layout_height="35dp"
+                        android:src="@drawable/ic_ava"
+                        android:layout_gravity="center"/>
+
+                    <TextView
+                        android:id="@+id/main_cv_email_txt"
+                        android:layout_width="0dp"
+                        android:layout_weight="0.35"
+                        android:layout_height="match_parent"
+                        android:maxLines="1"
+                        android:paddingRight="4dp"
+                        android:text="biyekeshev@mail.ru"
+                        android:gravity="center"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_weight="0.002"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:background="@color/gray_pressed"/>
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.15"
+                        android:layout_height="35dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_chart_bar"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="0.35"
+                        android:layout_height="match_parent"
+                        android:text="1560 (-38.80%)"
+                        android:textColor="#ff3632"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:id="@+id/main_cv_rating_txt" />
 
 
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.2dp"
+                    android:background="@color/black_overlay"/>
+
+
+            </LinearLayout>
         </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.2dp"
-            android:background="@color/black_overlay"/>
-
-
-    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
