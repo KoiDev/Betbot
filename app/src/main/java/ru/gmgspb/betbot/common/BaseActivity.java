@@ -17,7 +17,7 @@ import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.analiz.AnalizActivivty;
 import ru.gmgspb.betbot.bukmeker.RatingsBukmekerActivity;
 import ru.gmgspb.betbot.forecast.view.ForecastsSearchActivity;
-import ru.gmgspb.betbot.live.LiveActivity;
+import ru.gmgspb.betbot.live.view.LiveActivity;
 import ru.gmgspb.betbot.main.view.MainActivity;
 import ru.gmgspb.betbot.message.MessageActivity;
 import ru.gmgspb.betbot.player.RatingsPlayersActivivty;

@@ -6,12 +6,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ru.gmgspb.betbot.live.LiveActivity">
+    tools:context="ru.gmgspb.betbot.live.view.LiveActivity">
 
     <LinearLayout
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
         android:orientation="horizontal"
         android:background="#005c89">
 
@@ -42,6 +43,95 @@
             android:src="@drawable/arrow_robo_r"
             android:background="#005c89"
             android:layout_weight="0.05"    />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.6"></FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/live_allgames_imgbtn"
+                android:layout_width="match_parent"
+                android:layout_weight="0.8"
+                android:src="@drawable/all_games_default"
+                android:background="@color/colorPrimary"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="0.4"
+                android:layout_height="0dp"
+                android:text="Все игры"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/live_live_imgbtn"
+                android:layout_width="match_parent"
+                android:layout_weight="0.8"
+                android:src="@drawable/live_default"
+                android:background="@color/colorPrimary"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="0.4"
+                android:layout_height="0dp"
+                android:text="LIVE"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="0.3"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/live_allfavorites_imgbtn"
+                android:layout_width="match_parent"
+                android:layout_weight="0.8"
+                android:src="@drawable/my_games_default"
+                android:background="@color/colorPrimary"
+                android:layout_height="0dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_weight="0.4"
+                android:layout_height="0dp"
+                android:text="Мои игры"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@color/colorPrimary"/>
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
 

@@ -48,7 +48,7 @@
             android:label="ТОП СТАВКИ"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".live.LiveActivity"
+            android:name=".live.view.LiveActivity"
             android:label="РЕЗУЛЬТАТЫ LIVE"
             android:screenOrientation="portrait" />
         <activity

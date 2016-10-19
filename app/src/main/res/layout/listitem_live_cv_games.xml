@@ -15,14 +15,14 @@
         >
 
         <ImageView
-            android:id="@+id/robobet_list_img"
+            android:id="@+id/live_games_list_img"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_gravity="center_horizontal|center_vertical"
             android:src="@drawable/football"/>
 
         <TextView
-            android:id="@+id/robobet_txt"
+            android:id="@+id/live_games_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

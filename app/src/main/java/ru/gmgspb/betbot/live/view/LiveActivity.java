@@ -1,4 +1,4 @@
-package ru.gmgspb.betbot.live;
+package ru.gmgspb.betbot.live.view;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -8,8 +8,8 @@ import java.util.List;
 
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.common.BaseActivity;
+import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
-import ru.gmgspb.betbot.robobet.adapter.RobobetListAdapter;
 
 public class LiveActivity extends BaseActivity{
 
@@ -30,11 +30,11 @@ public class LiveActivity extends BaseActivity{
 
     RecyclerView recyclerView;
     private void initRecyclerViewList() {
-        recyclerView = (RecyclerView) findViewById(R.id.robobet_list_rv);
+        recyclerView = (RecyclerView) findViewById(R.id.live_list_rv);
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
-        RobobetListAdapter adapter = new RobobetListAdapter(intiDate());
+        LiveGamesListAdapter adapter = new LiveGamesListAdapter(intiDate());
         recyclerView.setAdapter(adapter);
     }
 
