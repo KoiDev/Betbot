@@ -27,8 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_weight="0.9">
-        </android.support.v7.widget.RecyclerView>
+            android:layout_weight="0.9"/>
 
         <ImageButton
             android:id="@+id/robobet_rv_r"

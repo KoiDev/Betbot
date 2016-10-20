@@ -134,37 +134,37 @@ public class RobobetActivity extends AppCompatActivity {
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
-        RobobetListAdapter adapter = new RobobetListAdapter(intiDate());
-        recyclerView.setAdapter(adapter);
+//        RobobetListAdapter adapter = new RobobetListAdapter(intiDate());
+//        recyclerView.setAdapter(adapter);
     }
 
-    private List<RobobetListModel> intiDate() {
-        list = new ArrayList<>();
-        list.add(new RobobetListModel(R.drawable.all, "Все"));
-        list.add(new RobobetListModel(R.drawable.football, "Футбол"));
-        list.add(new RobobetListModel(R.drawable.tennis, "Тенис"));
-        list.add(new RobobetListModel(R.drawable.hockey, "Хоккей"));
-        list.add(new RobobetListModel(R.drawable.backetball, "Баскетбол"));
-        list.add(new RobobetListModel(R.drawable.volleyball, "Волейбол"));
-        list.add(new RobobetListModel(R.drawable.am_footbool, "Америк.футбол"));
-        list.add(new RobobetListModel(R.drawable.baseball, "Бейсбол"));
-        list.add(new RobobetListModel(R.drawable.rugby, "Регби"));
-        list.add(new RobobetListModel(R.drawable.badminton, "Бадбинтон"));
-        list.add(new RobobetListModel(R.drawable.waterpolo, "Водное поло"));
-        list.add(new RobobetListModel(R.drawable.futsal, "Футзал"));
-        list.add(new RobobetListModel(R.drawable.darts, "Дартс"));
-        list.add(new RobobetListModel(R.drawable.table_tennis, "Настрол.тенис"));
-        list.add(new RobobetListModel(R.drawable.chess, "Шахматы"));
-        list.add(new RobobetListModel(R.drawable.snooker, "Снукер"));
-        list.add(new RobobetListModel(R.drawable.hockey_grass, "Хоккей на траве"));
-        list.add(new RobobetListModel(R.drawable.hockey_ball, "Теннис с мячом"));
-        list.add(new RobobetListModel(R.drawable.skiing, "Лыжи"));
-        list.add(new RobobetListModel(R.drawable.cybersport, "Киберспоррт"));
-        list.add(new RobobetListModel(R.drawable.beach_soccer, "Пляжний футбол"));
-        list.add(new RobobetListModel(R.drawable.handball, "Нагдбол"));
-        list.add(new RobobetListModel(R.drawable.biathlon, "Биатлон"));
-        return list;
-    }
+//    private List<RobobetListModel> intiDate() {
+//        list = new ArrayList<>();
+//        list.add(new RobobetListModel(R.drawable.all, "Все"));
+//        list.add(new RobobetListModel(R.drawable.football, "Футбол"));
+//        list.add(new RobobetListModel(R.drawable.tennis, "Тенис"));
+//        list.add(new RobobetListModel(R.drawable.hockey, "Хоккей"));
+//        list.add(new RobobetListModel(R.drawable.backetball, "Баскетбол"));
+//        list.add(new RobobetListModel(R.drawable.volleyball, "Волейбол"));
+//        list.add(new RobobetListModel(R.drawable.am_footbool, "Америк.футбол"));
+//        list.add(new RobobetListModel(R.drawable.baseball, "Бейсбол"));
+//        list.add(new RobobetListModel(R.drawable.rugby, "Регби"));
+//        list.add(new RobobetListModel(R.drawable.badminton, "Бадбинтон"));
+//        list.add(new RobobetListModel(R.drawable.waterpolo, "Водное поло"));
+//        list.add(new RobobetListModel(R.drawable.futsal, "Футзал"));
+//        list.add(new RobobetListModel(R.drawable.darts, "Дартс"));
+//        list.add(new RobobetListModel(R.drawable.table_tennis, "Настрол.тенис"));
+//        list.add(new RobobetListModel(R.drawable.chess, "Шахматы"));
+//        list.add(new RobobetListModel(R.drawable.snooker, "Снукер"));
+//        list.add(new RobobetListModel(R.drawable.hockey_grass, "Хоккей на траве"));
+//        list.add(new RobobetListModel(R.drawable.hockey_ball, "Теннис с мячом"));
+//        list.add(new RobobetListModel(R.drawable.skiing, "Лыжи"));
+//        list.add(new RobobetListModel(R.drawable.cybersport, "Киберспоррт"));
+//        list.add(new RobobetListModel(R.drawable.beach_soccer, "Пляжний футбол"));
+//        list.add(new RobobetListModel(R.drawable.handball, "Нагдбол"));
+//        list.add(new RobobetListModel(R.drawable.biathlon, "Биатлон"));
+//        return list;
+//    }
 
     public void showMoreInfo (View view) {
         RelativeLayout robobetInfo = (RelativeLayout) findViewById(R.id.robobet_rl_info_all);

@@ -33,8 +33,8 @@ public class RobobetListAdapter extends RecyclerView.Adapter<RobobetListAdapter.
     @Override
     public void onBindViewHolder(RobobetViewHolder holder, int position) {
         RobobetListModel searchModel = list.get(position);
-        holder.robobet_list_img.setImageResource(searchModel.getImage());
-        holder.robobet_txt.setText(searchModel.getText());
+//        holder.robobet_list_img.setImageResource(searchModel.getImage());
+//        holder.robobet_txt.setText(searchModel.getText());
 
     }
 

@@ -5,9 +5,10 @@
             android:fromDegrees="45"
             android:toDegrees="45"
             android:pivotX="-40%"
-            android:pivotY="90%" >
+            android:pivotY="87%" >
             <shape
                 android:shape="rectangle" >
+                <!--<stroke android:color="@color/gray_pressed" android:width="10dp"/>-->
                 <solid
                     android:color="@color/gray_pressed" />
             </shape>

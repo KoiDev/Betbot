@@ -1,11 +1,15 @@
 package ru.gmgspb.betbot.live.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,11 +21,15 @@ import ru.gmgspb.betbot.network.entity.RobobetListModel;
 
 public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdapter.LiveGamesViewHolder>{
 
-    private List<RobobetListModel> list;
+    private List<RobobetListModel.DataBean> list;
+    int mCurrentItemPosition = -1;
 
-    public LiveGamesListAdapter(List<RobobetListModel> list) {
+    public LiveGamesListAdapter(List<RobobetListModel.DataBean> list, LiveGamesListAdapterListener listener) {
         this.list = list;
+        onClickListener = listener;
     }
+
+
 
     @Override
     public LiveGamesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -31,11 +39,25 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
         return new LiveGamesViewHolder(view);
     }
 
+    public LiveGamesListAdapterListener onClickListener;
+
+    public interface LiveGamesListAdapterListener {
+
+        void liveGamesListViewOnClick(View v, int position);
+    }
+
     @Override
     public void onBindViewHolder(LiveGamesViewHolder holder, int position) {
-        RobobetListModel model = list.get(position);
-        holder.imgGame.setImageResource(model.getImage());
-        holder.txtGame.setText(model.getText());
+        RobobetListModel.DataBean model = list.get(position);
+//        holder.imgGame.setImageResource(model.getImage());
+        holder.txtGame.setText(model.getName());
+        if(mCurrentItemPosition == position ){
+            holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
+        } else {
+            holder.txtGame.setTextColor(Color.parseColor("#0277bd"));
+            holder.txtGame.setTag(1);
+        }
+
     }
 
     @Override
@@ -47,12 +69,46 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
 
         @BindView(R.id.live_games_list_img)
         ImageView imgGame;
-        @BindView(R.id.live_games_txt)
+        @BindView(R.id.live_games_list_txt)
         TextView txtGame;
+        @BindView(R.id.live_games_list_select)
+        ImageView imgSelect;
+        @BindView(R.id.live_list_rl)
+        RelativeLayout rl;
 
         public LiveGamesViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this,itemView);
+
+            rl.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int ItemSelectedState = (int) txtGame.getTag();
+
+                    int previousPosition = mCurrentItemPosition;
+                    if (ItemSelectedState == 1) {
+
+                        mCurrentItemPosition = getAdapterPosition();
+
+                        txtGame.setTextColor(Color.parseColor("#ffffff"));
+                        txtGame.setTag(2);
+                        imgSelect.setVisibility(View.VISIBLE);
+                        imgSelect.setTag(2);
+
+                    } else {
+                        mCurrentItemPosition = -1;
+                        txtGame.setTextColor(Color.parseColor("#0277bd"));
+                        txtGame.setTag(1);
+                        imgSelect.setVisibility(View.GONE);
+                        imgSelect.setTag(1);
+                    }
+
+                    if(previousPosition != -1) {
+                        notifyItemChanged(previousPosition);
+                    }
+                }
+            });
         }
+
     }
 }
