@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.common.BaseActivity;
-import ru.gmgspb.betbot.live.adapter.ViewPagerAdapter;
+import ru.gmgspb.betbot.live.adapter.LiveViewPagerAdapter;
 import ru.gmgspb.betbot.live.fragment.TabFragmentOne;
 import ru.gmgspb.betbot.live.fragment.TabFragmentThree;
 import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
@@ -37,7 +37,7 @@ public class LiveActivity extends BaseActivity{
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        LiveViewPagerAdapter adapter = new LiveViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(TabFragmentOne.newInstance("this is fragment 1"), "Все игры");
         adapter.addFragment(TabFragmentTwo.newInstance("this is fragment 2"), "LIVE");
         adapter.addFragment(TabFragmentThree.newInstance("this is fragment 3"), "Мои игры");

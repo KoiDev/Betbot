@@ -39,18 +39,20 @@ public class TabFragmentOne extends Fragment{
         super.onCreate(savedInstanceState);
         example_data = getArguments().getString(ARG_EXAMPLE);
 
-        initRecyclerViewList();
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_live_all_games, container, false);
+        View view = inflater.inflate(R.layout.fragment_live_all_games, container, false);
+        initRecyclerViewList(view);
+        return view;
     }
 
 
-    private void initRecyclerViewList() {
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.fragment_all_list_rv); //TODO ERROR
+    private void initRecyclerViewList(View view) {
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.fragment_all_list_rv); //TODO ERROR
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);

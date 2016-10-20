@@ -26,7 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Football"/>
+            android:text="Football"
+            android:textColor="@color/colorPrimary"/>
 
     </LinearLayout>
 </android.support.v7.widget.CardView>
