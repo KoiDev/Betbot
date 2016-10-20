@@ -40,6 +40,6 @@ public class TabFragmentThree extends Fragment{
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_three, container, false);
+        return inflater.inflate(R.layout.fragment_live_favorite, container, false);
     }
 }
