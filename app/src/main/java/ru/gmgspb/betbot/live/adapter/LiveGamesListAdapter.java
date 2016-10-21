@@ -17,6 +17,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.gmgspb.betbot.R;
+import ru.gmgspb.betbot.common.ChoisePictureListGame;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
 
 public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdapter.LiveGamesViewHolder>{
@@ -49,13 +50,15 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
     @Override
     public void onBindViewHolder(LiveGamesViewHolder holder, int position) {
         RobobetListModel.DataBean model = list.get(position);
-//        holder.imgGame.setImageResource(model.getImage());
+        holder.imgGame.setImageResource(ChoisePictureListGame.getImage(model.getName()));
         holder.txtGame.setText(model.getName());
         if(mCurrentItemPosition == position ){
             holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
+            holder.imgSelect.setVisibility(View.VISIBLE);
         } else {
             holder.txtGame.setTextColor(Color.parseColor("#0277bd"));
             holder.txtGame.setTag(1);
+            holder.imgSelect.setVisibility(View.GONE);
         }
 
     }
@@ -93,14 +96,11 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
                         txtGame.setTextColor(Color.parseColor("#ffffff"));
                         txtGame.setTag(2);
                         imgSelect.setVisibility(View.VISIBLE);
-                        imgSelect.setTag(2);
-
                     } else {
                         mCurrentItemPosition = -1;
                         txtGame.setTextColor(Color.parseColor("#0277bd"));
                         txtGame.setTag(1);
                         imgSelect.setVisibility(View.GONE);
-                        imgSelect.setTag(1);
                     }
 
                     if(previousPosition != -1) {

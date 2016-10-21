@@ -62,12 +62,6 @@ public class TabFragmentOne extends Fragment{
         StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
-//        LiveGamesListAdapter adapter = new LiveGamesListAdapter(intiDateApi(), new LiveGamesListAdapter.LiveGamesListAdapterListener() {
-//            @Override
-//            public void liveGamesListViewOnClick(View v, int position) {
-//
-//            }
-//        });
 
         ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
         final Call<RobobetListModel> robobetListModelCall = api.getSportList();
@@ -91,31 +85,6 @@ public class TabFragmentOne extends Fragment{
             }
         });
 
-//        recyclerView.setAdapter();
-    }
-
-    private List<LiveGamesListAdapter> intiDateApi(View view) {
-        ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
-        final Call<RobobetListModel> robobetListModelCall = api.getSportList();
-
-        robobetListModelCall.enqueue(new Callback<RobobetListModel>() {
-            @Override
-            public void onResponse(Call<RobobetListModel> call, Response<RobobetListModel> response) {
-                RobobetListModel model = response.body();
-                LiveGamesListAdapter adapter = new LiveGamesListAdapter(model.getData(), new LiveGamesListAdapter.LiveGamesListAdapterListener() {
-                    @Override
-                    public void liveGamesListViewOnClick(View v, int position) {
-
-                    }
-                });
-            }
-
-            @Override
-            public void onFailure(Call<RobobetListModel> call, Throwable t) {
-                Log.e("Tag", t.getMessage());
-            }
-        });
-        return null;
     }
 
 }

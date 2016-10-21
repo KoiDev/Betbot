@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/selection_livelist_item"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+
+    <ImageButton
+        android:id="@+id/selection_livelist_item_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/my_games_default"
+        android:background="@android:color/transparent"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <View
+        android:id="@+id/selection_livelist_item_v1"
+        android:layout_width="0.2dp"
+        android:layout_height="match_parent"
+        android:background="@color/gray_pressed"
+        android:layout_toEndOf="@id/selection_livelist_item_img"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_toEndOf="@id/selection_livelist_item_v1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/selection_livelist_item_home_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/selection_livelist_item_v1"
+            android:text="Кельн"/>
+
+        <TextView
+            android:id="@+id/selection_livelist_item_away_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/selection_livelist_item_v1"
+            android:text="Бавария"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/selection_livelist_item_min_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:gravity="center_vertical"
+        android:text="86`"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/selection_livelist_item_v2" />
+
+    <View
+        android:id="@+id/selection_livelist_item_v2"
+        android:layout_width="0.2dp"
+        android:layout_height="match_parent"
+        android:background="@color/gray_pressed"
+        android:layout_toStartOf="@id/selection_livelist_item_home_count_txt"/>
+
+    <TextView
+        android:id="@+id/selection_livelist_item_home_count_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="0"
+        android:layout_alignParentEnd="true"/>
+
+    <TextView
+        android:id="@+id/selection_livelist_item_away_count_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selection_livelist_item_home_count_txt"
+        android:layout_margin="5dp"
+        android:text="0"
+        android:layout_alignParentEnd="true"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/gray_pressed"
+        android:layout_alignParentTop="true"/>
+
+
+
+</RelativeLayout>
