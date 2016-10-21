@@ -22,5 +22,4 @@ public interface ForecastApi {
     Call<DataLiveChampionshipList> getСhampionshipListGame
             (@Path("idSport") String id, @Path("idChampionship") String idChampionship);
 
-
 }

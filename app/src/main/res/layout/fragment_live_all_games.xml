@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_pressed">
 
     <LinearLayout
         android:id="@+id/rv_list"
@@ -38,5 +40,114 @@
             android:background="#005c89"
             android:layout_weight="0.05"    />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/section_allgames_header_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:text="Все игры"
+            android:layout_centerVertical="true"
+            android:textColor="#000"
+            android:textAllCaps="true"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/section_allgames_header_num2_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="12dp"
+            android:layout_marginLeft="8dp"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            android:background="@drawable/round_up_btn_grey"
+            android:text="139"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/section_allgames_header_num1_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:textColor="@color/white"
+            android:text="8"
+            android:background="@drawable/round_up_btn_red"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/section_allgames_header_num2_txt" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#889cae"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Избранные матчи"
+        android:textAllCaps="true"
+        android:background="#c2d7ea"
+        android:paddingLeft="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#889cae"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/section_allgames_header_rv_favorite"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#889cae"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Прочие матчи (А-Я)"
+        android:textAllCaps="true"
+        android:background="#c2d7ea"
+        android:paddingLeft="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="#889cae"
+        android:layout_marginRight="8dp"
+        android:layout_marginLeft="8dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/section_allgames_header_rv_other"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"/>
 
 </LinearLayout>

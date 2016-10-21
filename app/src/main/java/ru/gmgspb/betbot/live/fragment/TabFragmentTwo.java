@@ -32,6 +32,10 @@ public class TabFragmentTwo extends Fragment {
 
     private static final String ARG_EXAMPLE = "this_a_constant";
     private String example_data;
+    private List<RobobetListModel.DataBean> robobetList = new ArrayList<>();
+    private List<String> contacts = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private SectionedRecyclerViewAdapter sectionAdapter;
 
     public TabFragmentTwo() {
 
@@ -58,6 +62,11 @@ public class TabFragmentTwo extends Fragment {
         View view = inflater.inflate(R.layout.fragment_live_tablive, container, false);
         initRecyclerViewList(view);
 
+        sectionAdapter = new SectionedRecyclerViewAdapter();
+        recyclerView = (RecyclerView) view.findViewById(R.id.live_tablelive_rv);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        initData(1);
+        recyclerView.setAdapter(sectionAdapter);
         return view;
     }
 
@@ -73,15 +82,16 @@ public class TabFragmentTwo extends Fragment {
         robobetListModelCall.enqueue(new Callback<RobobetListModel>() {
             @Override
             public void onResponse(Call<RobobetListModel> call, Response<RobobetListModel> response) {
-                final RobobetListModel model = response.body();
-                LiveGamesListAdapter adapter = new LiveGamesListAdapter(model.getData(), new LiveGamesListAdapter.LiveGamesListAdapterListener() {
+                //final RobobetListModel model = response.body();
+                robobetList = response.body().getData();
+                LiveGamesListAdapter adapter = new LiveGamesListAdapter(robobetList, new LiveGamesListAdapter.LiveGamesListAdapterListener() {
                     @Override
                     public void liveGamesListViewOnClick(View v, int position) {
-                        RobobetListModel.DataBean bean = (RobobetListModel.DataBean) model.getData();
-                        initRecyclerViewListGames(bean.getId(), view);
+                        RobobetListModel.DataBean bean = robobetList.get(position);//!!!!!
+                        //initRecyclerViewListGames(bean.getId());
+                        initData(bean.getId());
                     }
                 });
-                adapter.notifyDataSetChanged();
                 recyclerView.setAdapter(adapter);
             }
 
@@ -93,9 +103,18 @@ public class TabFragmentTwo extends Fragment {
 
     }
 
-    private SectionedRecyclerViewAdapter sectionAdapter;
+    private void initData(int id) {
+        sectionAdapter.removeAllSections();
+        for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
+            contacts = getContactsWithLetter(alphabet);
+            sectionAdapter.addSection(new ContactsSection(String.valueOf(alphabet), contacts, id));
+        }
+        recyclerView.setAdapter(sectionAdapter);
+    }
 
-    private void initRecyclerViewListGames(int id, View view) {
+
+
+    private void initRecyclerViewListGames(int id) {
 
     /*    // Create an instance of SectionedRecyclerViewAdapter
         sectionAdapter = new SectionedRecyclerViewAdapter();
@@ -113,13 +132,10 @@ public class TabFragmentTwo extends Fragment {
             List<String> contacts = getContactsWithLetter(alphabet);
 
             if (contacts.size() > 0) {
-                sectionAdapter.addSection(new ContactsSection(String.valueOf(alphabet), contacts));
+
             }
         }
 
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.live_tablelive_rv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(sectionAdapter);
     }
 
     private List<String> getContactsWithLetter(char letter) {
@@ -138,12 +154,14 @@ public class TabFragmentTwo extends Fragment {
 
         String title;
         List<String> list;
+        int myId;
 
-        public ContactsSection(String title, List<String> list) {
+        public ContactsSection(String title, List<String> list, int myId) {
             super(R.layout.section_livelist_header, R.layout.section_livelist_item);
 
             this.title = title;
             this.list = list;
+            this.myId = myId;
         }
 
         @Override
@@ -162,7 +180,7 @@ public class TabFragmentTwo extends Fragment {
 
             String name = list.get(position);
 
-            itemHolder.tvItem.setText(name);
+            itemHolder.tvItem.setText(name + String.valueOf(myId));
 
             itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override

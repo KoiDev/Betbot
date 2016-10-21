@@ -72,7 +72,8 @@
             android:name=".forecasttop.view.TopForecastKf"
             android:label="КОЭФФИЦИЕНТЫ"
             android:screenOrientation="portrait" />
-        <activity android:name=".main.view.MainDetail"></activity>
+        <activity android:name=".main.view.MainDetail" />
+        <activity android:name=".live.view.LiveAllGamesDetail"></activity>
     </application>
 
 </manifest>

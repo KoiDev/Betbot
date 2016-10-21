@@ -106,6 +106,7 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
                     if(previousPosition != -1) {
                         notifyItemChanged(previousPosition);
                     }
+                    onClickListener.liveGamesListViewOnClick(v, getAdapterPosition());
                 }
             });
         }
