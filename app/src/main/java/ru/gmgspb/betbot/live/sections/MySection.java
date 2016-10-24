@@ -3,16 +3,13 @@ package ru.gmgspb.betbot.live.sections;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import java.util.Arrays;
 import java.util.List;
 
-import butterknife.BindView;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import ru.gmgspb.betbot.R;
-import ru.gmgspb.betbot.live.adapter.MyItemViewHolder;
-//import ru.gmgspb.betbot.live.adapter.
+import ru.gmgspb.betbot.live.adapter.TvItemViewHolder;
 
 public class MySection extends StatelessSection {
 
@@ -31,17 +28,13 @@ public class MySection extends StatelessSection {
     @Override
     public RecyclerView.ViewHolder getItemViewHolder(View view) {
         // return a custom instance of ViewHolder for the items of this section
-        return new MyItemViewHolder(view);
+        return new TvItemViewHolder(view);
     }
 
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MyItemViewHolder itemHolder = (MyItemViewHolder) holder;
+        TvItemViewHolder itemHolder = (TvItemViewHolder) holder;
 
-        //@BindView(R.id.selection_livelist_item_home_txt)
-        //TextView txtHome;
-        // bind your view here
-//        itemHolder.tvItem.setText(myList.get(position));
         itemHolder.tvItem.setText(myList.get(position));
     }
 }

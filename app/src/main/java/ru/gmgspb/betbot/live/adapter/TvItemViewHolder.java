@@ -6,11 +6,11 @@ import android.widget.TextView;
 
 import ru.gmgspb.betbot.R;
 
-public class MyItemViewHolder extends RecyclerView.ViewHolder {
+public class TvItemViewHolder extends RecyclerView.ViewHolder {
 
     public final TextView tvItem;
 
-    public MyItemViewHolder(View itemView) {
+    public TvItemViewHolder(View itemView) {
         super(itemView);
 
         tvItem = (TextView) itemView.findViewById(R.id.selection_livelist_item_home_txt);

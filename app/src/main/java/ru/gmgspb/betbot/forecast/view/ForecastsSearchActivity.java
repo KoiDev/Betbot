@@ -57,7 +57,7 @@ public class ForecastsSearchActivity extends BaseActivity {
         recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
 
         ForecastApi service = ForecastService.getInstance(getBaseContext()).getApi();
-        final Call<DataForecast> dataForecastCall = service.getList();
+        final Call<DataForecast> dataForecastCall = service.getListForecast();
 
         dataForecastCall.enqueue(new Callback<DataForecast>() {
 
