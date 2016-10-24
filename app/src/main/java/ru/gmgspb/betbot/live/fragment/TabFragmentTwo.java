@@ -20,6 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
+import ru.gmgspb.betbot.live.adapter.LiveItemListAdapter;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
@@ -113,12 +114,14 @@ public class TabFragmentTwo extends Fragment {
 
         for (DataLiveChampionship.DataBean model : championshipList){
 
-            sectionAdapter.addSection(model.getLeague(), id, );
+            sectionAdapter.addSection(new LiveItemListAdapter(model.getLeague(), null, id));
         }
         recyclerView.setAdapter(sectionAdapter);
     }
 
-    private void getListItem(View view, )
+    private void getListItem(View view, String id){
+
+    }
 
     private void getListHeade(View view, final int id){
         ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();

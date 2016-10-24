@@ -67,7 +67,7 @@ public class DataLiveChampionshipItem {
          * stat : 1
          */
 
-        private List<DataBean> data;
+        private List<DataDetail> data;
 
         public String getId() {
             return id;
@@ -93,15 +93,15 @@ public class DataLiveChampionshipItem {
             this.logo_league = logo_league;
         }
 
-        public List<DataBean> getData() {
+        public List<DataDetail> getData() {
             return data;
         }
 
-        public void setData(List<DataBean> data) {
+        public void setData(List<DataDetail> data) {
             this.data = data;
         }
 
-        public static class DataBean {
+        public static class DataDetail {
             private String tid;
             private String g_id;
             private String league;
