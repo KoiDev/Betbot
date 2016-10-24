@@ -12,14 +12,16 @@ import butterknife.ButterKnife;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
+import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
 
 public class LiveItemListAdapter extends StatelessSection {
 
     String title;
-    List<String> list;
+    List<DataLiveChampionshipList.DataBean.DataDetails> list;
     int myId;
 
-    public LiveItemListAdapter(String title, List<String> list, int myId) {
+    public LiveItemListAdapter(
+            String title, List<DataLiveChampionshipList.DataBean.DataDetails> list, int myId) {
         super(R.layout.section_livelist_header, R.layout.section_livelist_item);
         this.title = title;
         this.list = list;
@@ -39,8 +41,12 @@ public class LiveItemListAdapter extends StatelessSection {
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         final ItemViewHolder itemHolder = (ItemViewHolder) holder;
-        String name = list.get(position);
-        itemHolder.tvItem.setText(name + String.valueOf(myId));
+        DataLiveChampionshipList.DataBean.DataDetails name = list.get(position);
+        itemHolder.txtHome.setText(name.getHome());
+        itemHolder.txtAway.setText(name.getAway());
+        itemHolder.txtCountHome.setText(name.getRes1());
+        itemHolder.txtCountAway.setText(name.getRes2());
+        itemHolder.txtMin.setText(name.getEnd());
 
         itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +82,17 @@ public class LiveItemListAdapter extends StatelessSection {
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.selection_livelist_item_home_txt)
-        TextView tvItem;
+        TextView txtHome;
+        @BindView(R.id.selection_livelist_item_away_count_txt)
+        TextView txtAway;
+        @BindView(R.id.selection_livelist_item_min_txt)
+        TextView txtMin;
+        @BindView(R.id.selection_livelist_item_home_count_txt)
+        TextView txtCountHome;
+        @BindView(R.id.selection_livelist_item_away_count_txt)
+        TextView txtCountAway;
+
+
         View rootView;
 
         public ItemViewHolder(View view) {

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
 import ru.gmgspb.betbot.live.adapter.LiveItemListAdapter;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
+import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
 import ru.gmgspb.betbot.network.repository.ForecastService;
 
@@ -33,7 +35,6 @@ public class TabFragmentTwo extends Fragment {
     private List<RobobetListModel.DataBean> robobetList = new ArrayList<>();
     private List<DataLiveChampionship.DataBean> championshipList = new ArrayList<>();
     private int id;
-    private List<String> contacts = new ArrayList<>();
     private RecyclerView recyclerView;
     public static SectionedRecyclerViewAdapter sectionAdapter;
 
@@ -65,7 +66,7 @@ public class TabFragmentTwo extends Fragment {
         sectionAdapter = new SectionedRecyclerViewAdapter();
         recyclerView = (RecyclerView) view.findViewById(R.id.live_tablelive_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        initData(1);
+        initData(view, 1);
         recyclerView.setAdapter(sectionAdapter);
         return view;
     }
@@ -88,10 +89,9 @@ public class TabFragmentTwo extends Fragment {
                     public void liveGamesListViewOnClick(View v, int position) {
                         RobobetListModel.DataBean bean = robobetList.get(position);
                         id = bean.getId();
-                        initData(id);
+                        initData(view, id);
                     }
                 });
-                getListHeade(view, id);
                 recyclerView.setAdapter(adapter);
             }
 
@@ -104,35 +104,33 @@ public class TabFragmentTwo extends Fragment {
 
 
     }
-
-    private void initData(int id) {
+    private void initData(View view, int id) {
         sectionAdapter.removeAllSections();
-//        for (char alphabet = 'A'; alphabet <= 'Z'; alphabet++) {
-//            contacts = getContactsWithLetter(alphabet);
-//            sectionAdapter.addSection(new LiveItemListAdapter(String.valueOf(alphabet), contacts, id));
-//        }
-
+        getListHeade(view, id);
         for (DataLiveChampionship.DataBean model : championshipList){
-
-            sectionAdapter.addSection(new LiveItemListAdapter(model.getLeague(), null, id));
+                sectionAdapter.addSection(new LiveItemListAdapter(
+                        model.getLeague(), championshipListDetails, id));
         }
         recyclerView.setAdapter(sectionAdapter);
     }
 
-    private void getListItem(View view, String id){
 
-    }
+    private List<String> liguaId = new ArrayList<>();
 
-    private void getListHeade(View view, final int id){
+    private void getListHeade(final View view, final int id){
         ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
-        Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(id);
+        Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(id, "get_league");
 
         dataBeanCall.enqueue(new Callback<DataLiveChampionship>() {
             @Override
             public void onResponse(Call<DataLiveChampionship> call, Response<DataLiveChampionship> response) {
                 championshipList = response.body().getData();
+                for (DataLiveChampionship.DataBean getLigua : championshipList){
+                    liguaId.add(getLigua.getLeague_id());
+                }
+                for (String idString : liguaId)
+                    getListItem(view, idString, id);
             }
-
             @Override
             public void onFailure(Call<DataLiveChampionship> call, Throwable t) {
 
@@ -141,15 +139,25 @@ public class TabFragmentTwo extends Fragment {
     }
 
 
-    private List<String> getContactsWithLetter(char letter) {
-        List<String> contacts = new ArrayList<>();
+    private List<DataLiveChampionshipList.DataBean> championshipListDetails;
 
-        for (String contact : getResources().getStringArray(R.array.names)) {
-            if (contact.charAt(0) == letter) {
-                contacts.add(contact);
+    private void getListItem(View view, String liguaId, int sportId){
+        ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
+        Call<DataLiveChampionshipList> call = api.getСhampionshipListGame(
+                sportId, "get_matchi", liguaId);
+        call.enqueue(new Callback<DataLiveChampionshipList>() {
+            @Override
+            public void onResponse(Call<DataLiveChampionshipList> call,
+                                   Response<DataLiveChampionshipList> response) {
+                championshipListDetails = response.body().getData();
+
             }
-        }
-        return contacts;
+            @Override
+            public void onFailure(Call<DataLiveChampionshipList> call, Throwable t) {
+
+            }
+        });
     }
+
 
 }

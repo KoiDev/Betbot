@@ -1,5 +1,7 @@
 package ru.gmgspb.betbot.network.api;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -11,6 +13,7 @@ import ru.gmgspb.betbot.network.entity.GetDescriptionForecastModel;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
 
 public interface ForecastApi {
+
     @GET("feed_android_test.php?action=get_search_result")
     Call<DataForecast> getListForecast();
 
@@ -21,11 +24,16 @@ public interface ForecastApi {
     @GET("feed_android_test.php?action=get_sport_result")
     Call<RobobetListModel> getSportList();
 
-    @GET("feed_android_test.php/?action=get_shedule_result&sport={id}&act=get_league")
-    Call<DataLiveChampionship> getСhampionship (@Path("id") int id);
+    //http://vprognoze.ru/api/feed_android_test.php/?action=get_shedule_result&sport=ИД спорта&act=get_league
+    @GET("feed_android_test.php/?action=get_shedule_result")
+    Call<DataLiveChampionship> getСhampionship (
+            @Query("sport") int id,
+            @Query("act") String s);
 
-
-    @GET("feed_android_test.php/?action=get_shedule_result&sport={idSport}&act=get_matchi&league_id={idChampionship}")
-    Call<DataLiveChampionshipList> getСhampionshipListGame
-            (@Path("idSport") String id, @Path("idChampionship") String idChampionship);
+//http://vprognoze.ru/api/feed_android_test.php/?action=get_shedule_result&sport=1&act=get_matchi&league_id=4645543
+    @GET("feed_android_test.php/?action=get_shedule_result")
+    Call<DataLiveChampionshipList> getСhampionshipListGame(
+            @Query("sport") int id,
+            @Query("act") String s,
+            @Query("league_id") String idChampionship);
 }
