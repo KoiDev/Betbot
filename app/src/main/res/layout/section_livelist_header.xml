@@ -4,19 +4,21 @@
     android:id="@+id/section_livelist_header"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="30dp">
+    android:layout_height="30dp"
+    android:background="#f5f5f5">
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.2dp"
-        android:background="@color/gray_pressed"/>
+        android:background="#bebebe"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="5dp">
         <ImageView
             android:id="@+id/section_livelist_header_img"
             android:layout_width="wrap_content"
@@ -29,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Германия. Бундеслига"
+            android:textColor="#555555"
             android:gravity="center_vertical"/>
 
     </LinearLayout>

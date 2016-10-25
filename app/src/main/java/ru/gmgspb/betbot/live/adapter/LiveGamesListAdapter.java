@@ -2,9 +2,7 @@ package ru.gmgspb.betbot.live.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +22,8 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
 
     private List<RobobetListModel.DataBean> list;
     int mCurrentItemPosition = -1;
+    int previous=-1;
+    Boolean itemRepeat = false;
 
     public LiveGamesListAdapter(List<RobobetListModel.DataBean> list, LiveGamesListAdapterListener listener) {
         this.list = list;
@@ -52,7 +52,16 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
         RobobetListModel.DataBean model = list.get(position);
         holder.imgGame.setImageResource(ChoisePictureListGame.getImage(model.getName()));
         holder.txtGame.setText(model.getName());
-        if(mCurrentItemPosition == position ){
+        if (previous == -1){
+            holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
+            holder.imgSelect.setVisibility(View.VISIBLE);
+            mCurrentItemPosition = 0;
+            previous = 0;/*
+        }else if (itemRepeat == true){
+            holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
+            holder.imgSelect.setVisibility(View.VISIBLE);
+            itemRepeat = false;*/
+        }else if(mCurrentItemPosition == position){
             holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
             holder.imgSelect.setVisibility(View.VISIBLE);
         } else {
@@ -96,6 +105,11 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
                         txtGame.setTextColor(Color.parseColor("#ffffff"));
                         txtGame.setTag(2);
                         imgSelect.setVisibility(View.VISIBLE);
+/*
+                        if (mCurrentItemPosition == previous){
+                            itemRepeat = true;
+                        }else previous = mCurrentItemPosition;      */
+
                     } else {
                         mCurrentItemPosition = -1;
                         txtGame.setTextColor(Color.parseColor("#0277bd"));
@@ -105,8 +119,10 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
 
                     if(previousPosition != -1) {
                         notifyItemChanged(previousPosition);
+
                     }
                     onClickListener.liveGamesListViewOnClick(v, getAdapterPosition());
+
                 }
             });
         }

@@ -28,9 +28,6 @@ public class LiveItemListAdapter extends StatelessSection {
         this.myId = myId;
     }
 
-
-
-
     @Override
     public int getContentItemsTotal() {
         return list.size();
@@ -51,14 +48,14 @@ public class LiveItemListAdapter extends StatelessSection {
         itemHolder.txtCountAway.setText(details.getRes2());
         itemHolder.txtMin.setText(details.getEnd());
 
-        itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), String.format("Clicked on position #%s of Section %s",
-                        TabFragmentTwo.sectionAdapter.getSectionPosition(itemHolder.getAdapterPosition()), title),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+//        itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(), String.format("Clicked on position #%s of Section %s",
+//                        TabFragmentTwo.sectionAdapter.getSectionPosition(itemHolder.getAdapterPosition()), title),
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     @Override
@@ -92,8 +89,6 @@ public class LiveItemListAdapter extends StatelessSection {
         TextView txtMin;
         @BindView(R.id.selection_livelist_item_home_count_txt)
         TextView txtCountHome;
-
-        //TODO Error
         @BindView(R.id.selection_livelist_item_away_count_txt)
         TextView txtCountAway;
 
