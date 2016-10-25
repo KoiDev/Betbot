@@ -1,9 +1,5 @@
 package ru.gmgspb.betbot.network.entity;
 
-/**
- * Created by User on 002 02.10.16.
- */
-
 public class GetDescriptionForecastModel {
 
     /**

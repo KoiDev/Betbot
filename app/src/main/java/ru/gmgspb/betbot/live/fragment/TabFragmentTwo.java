@@ -36,6 +36,7 @@ public class TabFragmentTwo extends Fragment {
     private List<DataLiveChampionship.DataBean> championshipList = new ArrayList<>();
     private int id;
     private RecyclerView recyclerView;
+    private List<DataLiveChampionshipList.DataBean.DataDetails> championshipListDetails = new ArrayList<>();
     public static SectionedRecyclerViewAdapter sectionAdapter;
 
     public TabFragmentTwo() {
@@ -66,7 +67,7 @@ public class TabFragmentTwo extends Fragment {
         sectionAdapter = new SectionedRecyclerViewAdapter();
         recyclerView = (RecyclerView) view.findViewById(R.id.live_tablelive_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        initData(view, 1);
+        getListHeade(view, 1);
         recyclerView.setAdapter(sectionAdapter);
         return view;
     }
@@ -89,8 +90,7 @@ public class TabFragmentTwo extends Fragment {
                     public void liveGamesListViewOnClick(View v, int position) {
                         RobobetListModel.DataBean bean = robobetList.get(position);
                         id = bean.getId();
-                        initData(view, id);
-                    }
+                        getListHeade(view, id);                    }
                 });
                 recyclerView.setAdapter(adapter);
             }
@@ -101,62 +101,87 @@ public class TabFragmentTwo extends Fragment {
             }
         });
 
-
-
     }
-    private void initData(View view, int id) {
-        sectionAdapter.removeAllSections();
+//    private void initData(View view, int id) {
+//        sectionAdapter.removeAllSections();
+//        getListHeade(view, id);
+//        for (DataLiveChampionship.DataBean model : championshipList){
+//            getListItem(view, model.getLeague_id(), id);
+//            int i = 0;
+//            for (DataLiveChampionshipList.DataBean details :  championshipListDetails)
+//                sectionAdapter.addSection(new LiveItemListAdapter(
+//                        model.getLeague_id(), details.getData(), id));
+//        }
+//        recyclerView.setAdapter(sectionAdapter);
+
+        /*sectionAdapter.removeAllSections();
         getListHeade(view, id);
         for (DataLiveChampionship.DataBean model : championshipList){
-                sectionAdapter.addSection(new LiveItemListAdapter(
-                        model.getLeague(), championshipListDetails, id));
+            sectionAdapter.addSection(new LiveItemListAdapter(
+                    model.getLeague(), championshipListDetails, id));
         }
-        recyclerView.setAdapter(sectionAdapter);
-    }
+        recyclerView.setAdapter(sectionAdapter);*/
+//    }
+
 
 
     private List<String> liguaId = new ArrayList<>();
-
     private void getListHeade(final View view, final int id){
+        liguaId.clear();
         ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
         Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(id, "get_league");
 
         dataBeanCall.enqueue(new Callback<DataLiveChampionship>() {
             @Override
             public void onResponse(Call<DataLiveChampionship> call, Response<DataLiveChampionship> response) {
-                championshipList = response.body().getData();
+                /*championshipList = response.body().getData();
                 for (DataLiveChampionship.DataBean getLigua : championshipList){
                     liguaId.add(getLigua.getLeague_id());
                 }
-                for (String idString : liguaId)
-                    getListItem(view, idString, id);
+
+                Log.d("TAG: ", "Connect Header OK");*/
+                championshipList = response.body().getData();
+                for (DataLiveChampionship.DataBean getLigua : championshipList){
+                    liguaId.add(getLigua.getLeague_id());
+                    championshipListDetails = getListItem(view, getLigua.getLeague_id(), id);
+                    sectionAdapter.addSection(new LiveItemListAdapter(
+                            getLigua.getLeague(), championshipListDetails, id));
+                }
+                sectionAdapter.notifyDataSetChanged();
+                //recyclerView.setAdapter(sectionAdapter);
+                /*for (String idString : liguaId)
+                    getListItem(view, idString, id);*/
             }
             @Override
             public void onFailure(Call<DataLiveChampionship> call, Throwable t) {
-
+                Log.d("TAG: ", "Connect Header NOT");
             }
         });
     }
 
 
-    private List<DataLiveChampionshipList.DataBean> championshipListDetails;
+    private List<DataLiveChampionshipList.DataBean.DataDetails> championshipListDetailsTemp;
 
-    private void getListItem(View view, String liguaId, int sportId){
+    private List<DataLiveChampionshipList.DataBean.DataDetails> getListItem(View view, String liguaId, int sportId){
+        championshipListDetailsTemp = new ArrayList<>();
         ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
-        Call<DataLiveChampionshipList> call = api.getСhampionshipListGame(
-                sportId, "get_matchi", liguaId);
-        call.enqueue(new Callback<DataLiveChampionshipList>() {
+        Call<DataLiveChampionshipList> matchi = api.getСhampionshipListGame(sportId, liguaId);
+        matchi.enqueue(new Callback<DataLiveChampionshipList>() {                                                           //TODO Error
             @Override
-            public void onResponse(Call<DataLiveChampionshipList> call,
-                                   Response<DataLiveChampionshipList> response) {
-                championshipListDetails = response.body().getData();
-
+            public void onResponse(Call<DataLiveChampionshipList> call, Response<DataLiveChampionshipList> response) {
+                for (DataLiveChampionshipList.DataBean detail : response.body().getData()) {
+                    championshipListDetailsTemp = detail.getData();
+                }
+                Log.e("TAG: ", "Connect Item");
             }
+
             @Override
             public void onFailure(Call<DataLiveChampionshipList> call, Throwable t) {
-
+                Log.e("TAG: ", "Connect Item NOT");
             }
         });
+        return championshipListDetailsTemp;
+
     }
 
 

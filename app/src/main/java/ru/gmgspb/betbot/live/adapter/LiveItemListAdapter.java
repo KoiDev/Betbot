@@ -28,6 +28,9 @@ public class LiveItemListAdapter extends StatelessSection {
         this.myId = myId;
     }
 
+
+
+
     @Override
     public int getContentItemsTotal() {
         return list.size();
@@ -41,12 +44,12 @@ public class LiveItemListAdapter extends StatelessSection {
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         final ItemViewHolder itemHolder = (ItemViewHolder) holder;
-        DataLiveChampionshipList.DataBean.DataDetails name = list.get(position);
-        itemHolder.txtHome.setText(name.getHome());
-        itemHolder.txtAway.setText(name.getAway());
-        itemHolder.txtCountHome.setText(name.getRes1());
-        itemHolder.txtCountAway.setText(name.getRes2());
-        itemHolder.txtMin.setText(name.getEnd());
+        DataLiveChampionshipList.DataBean.DataDetails details = list.get(position);
+        itemHolder.txtHome.setText(details.getHome());
+        itemHolder.txtAway.setText(details.getAway());
+        itemHolder.txtCountHome.setText(details.getRes1());
+        itemHolder.txtCountAway.setText(details.getRes2());
+        itemHolder.txtMin.setText(details.getEnd());
 
         itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,15 +86,16 @@ public class LiveItemListAdapter extends StatelessSection {
     class ItemViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.selection_livelist_item_home_txt)
         TextView txtHome;
-        @BindView(R.id.selection_livelist_item_away_count_txt)
+        @BindView(R.id.selection_livelist_item_away_txt)
         TextView txtAway;
         @BindView(R.id.selection_livelist_item_min_txt)
         TextView txtMin;
         @BindView(R.id.selection_livelist_item_home_count_txt)
         TextView txtCountHome;
+
+        //TODO Error
         @BindView(R.id.selection_livelist_item_away_count_txt)
         TextView txtCountAway;
-
 
         View rootView;
 

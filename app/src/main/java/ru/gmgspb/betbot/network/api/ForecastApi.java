@@ -31,9 +31,9 @@ public interface ForecastApi {
             @Query("act") String s);
 
 //http://vprognoze.ru/api/feed_android_test.php/?action=get_shedule_result&sport=1&act=get_matchi&league_id=4645543
-    @GET("feed_android_test.php/?action=get_shedule_result")
+    @GET("feed_android_test.php/?action=get_shedule_result&act=get_matchi")
     Call<DataLiveChampionshipList> getСhampionshipListGame(
             @Query("sport") int id,
-            @Query("act") String s,
+            //@Query("act") String s,
             @Query("league_id") String idChampionship);
 }
