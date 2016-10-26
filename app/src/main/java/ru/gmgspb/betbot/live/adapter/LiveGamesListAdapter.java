@@ -52,11 +52,15 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
         RobobetListModel.DataBean model = list.get(position);
         holder.imgGame.setImageResource(ChoisePictureListGame.getImage(model.getName()));
         holder.txtGame.setText(model.getName());
+
+        //так я определяю первый элемент с помощью новой переменной
         if (previous == -1){
             holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
             holder.imgSelect.setVisibility(View.VISIBLE);
             mCurrentItemPosition = 0;
             previous = 0;/*
+
+            //а это чудо-обработка DoubleClick, в LiveGamesViewHolder продолжение магии
         }else if (itemRepeat == true){
             holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
             holder.imgSelect.setVisibility(View.VISIBLE);
@@ -106,6 +110,7 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
                         txtGame.setTag(2);
                         imgSelect.setVisibility(View.VISIBLE);
 /*
+                        //при совпадении предыдущего и нового клила делам АХАЛАЙ-МАХАЛАЙ:
                         if (mCurrentItemPosition == previous){
                             itemRepeat = true;
                         }else previous = mCurrentItemPosition;      */
