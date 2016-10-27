@@ -2,9 +2,11 @@ package ru.gmgspb.betbot.live.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
@@ -12,6 +14,7 @@ import butterknife.ButterKnife;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
+import ru.gmgspb.betbot.live.sections.helpersDB.ServicesDataSource;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
 
 public class LiveItemListAdapter extends StatelessSection {
@@ -19,6 +22,8 @@ public class LiveItemListAdapter extends StatelessSection {
     String title;
     List<DataLiveChampionshipList.DataBean.DataDetails> list;
     int myId;
+
+    ServicesDataSource datasourceServices;
 
     public LiveItemListAdapter(
             String title, List<DataLiveChampionshipList.DataBean.DataDetails> list, int myId) {
@@ -41,21 +46,35 @@ public class LiveItemListAdapter extends StatelessSection {
     @Override
     public void onBindItemViewHolder(RecyclerView.ViewHolder holder, int position) {
         final ItemViewHolder itemHolder = (ItemViewHolder) holder;
-        DataLiveChampionshipList.DataBean.DataDetails details = list.get(position);
+        final DataLiveChampionshipList.DataBean.DataDetails details = list.get(position);
         itemHolder.txtHome.setText(details.getHome());
         itemHolder.txtAway.setText(details.getAway());
-        itemHolder.txtCountHome.setText(details.getRes1());
+        itemHolder.txtCountHome.setText("  " + details.getRes1());
         itemHolder.txtCountAway.setText(details.getRes2());
-        itemHolder.txtMin.setText(details.getEnd());
+        itemHolder.txtMin.setText(details.getLive()); //TODO this
 
-//        itemHolder.rootView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(v.getContext(), String.format("Clicked on position #%s of Section %s",
-//                        TabFragmentTwo.sectionAdapter.getSectionPosition(itemHolder.getAdapterPosition()), title),
-//                        Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        itemHolder.imgFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //TODO errrrrrror
+                datasourceServices = new ServicesDataSource();
+                datasourceServices.open();
+                HashMap<String, String> paramService = new HashMap<>();
+                paramService.put("id", details.getId());
+                paramService.put("gameId", details.getId());
+                paramService.put("league", details.getLeague());
+                paramService.put("data", details.getDate());
+                paramService.put("home", details.getHome());
+                paramService.put("away", details.getAway());
+                paramService.put("res1", details.getRes1());
+                paramService.put("res2", details.getRes2());
+                paramService.put("live", details.getLive());
+                datasourceServices.createService(paramService);
+
+                datasourceServices.close();
+
+                itemHolder.imgFavorite.setImageResource(R.drawable.star_live_selected); //TODO xml-selected!!!
+            }
+        });
     }
 
     @Override
@@ -91,6 +110,8 @@ public class LiveItemListAdapter extends StatelessSection {
         TextView txtCountHome;
         @BindView(R.id.selection_livelist_item_away_count_txt)
         TextView txtCountAway;
+        @BindView(R.id.selection_livelist_item_img)
+        ImageView imgFavorite;
 
         View rootView;
 
@@ -98,6 +119,8 @@ public class LiveItemListAdapter extends StatelessSection {
             super(view);
             rootView = view;
             ButterKnife.bind(this, view);
+
+
         }
 
 }

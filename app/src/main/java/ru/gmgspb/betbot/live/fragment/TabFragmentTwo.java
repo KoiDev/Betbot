@@ -100,7 +100,7 @@ public class TabFragmentTwo extends Fragment {
         });
     }
 
-    private void getListHeader(int sportId) {
+    public void getListHeader(int sportId) {
 
         Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(sportId, "get_league");
         sport_id = sportId;
@@ -118,12 +118,11 @@ public class TabFragmentTwo extends Fragment {
             }
             @Override
             public void onFailure(Call<DataLiveChampionship> call, Throwable t) {
-                Log.d("TAG: ", "Connect Header NOT");
             }
         });
     }
 
-    private void getListItem(String liguaId, int sportId, int liguaPos) {
+    public void getListItem(String liguaId, int sportId, int liguaPos) {
 
         Call<DataLiveChampionshipList> matchi = api.getСhampionshipListGame(sportId, liguaId);
         item_liga = liguaId;
@@ -142,13 +141,17 @@ public class TabFragmentTwo extends Fragment {
 
                     sectionAdapter.notifyDataSetChanged();
                 }
-                Log.e("TAG: ", "Connect Item");
             }
 
             @Override
             public void onFailure(Call<DataLiveChampionshipList> call, Throwable t) {
-                Log.e("TAG: ", "Connect Item NOT");
             }
         });
     }
+
+    private void addSectionToRecycler(List<DataLiveChampionshipList.DataBean.DataDetails> listData, int sportId){
+
+//        sectionAdapter.addSection(new LiveItemListAdapter());
+    }
+
 }

@@ -3,6 +3,7 @@ package ru.gmgspb.betbot.live.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -17,7 +18,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import ru.gmgspb.betbot.R;
+import ru.gmgspb.betbot.live.adapter.LiveAllGamesHeaderOtherAdapter;
 import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
+import ru.gmgspb.betbot.network.api.ApiClient;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
 import ru.gmgspb.betbot.network.repository.ForecastService;
@@ -27,6 +30,10 @@ public class TabFragmentOne extends Fragment{
 
     private static final String ARG_EXAMPLE = "this_a_constant";
     private String example_data;
+
+    private ForecastApi api;
+    private RecyclerView recyclerViewSports;
+    private RecyclerView recyclerViewLeague;
 
     public TabFragmentOne(){
 
@@ -44,15 +51,29 @@ public class TabFragmentOne extends Fragment{
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         example_data = getArguments().getString(ARG_EXAMPLE);
-
-
+        api = ApiClient.getClient().create(ForecastApi.class);
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_live_all_games, container, false);
+
+        recyclerViewSports = (RecyclerView) view.findViewById(R.id.section_allgames_header_rv_other);
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(
+                1, StaggeredGridLayoutManager.HORIZONTAL);
+        recyclerViewSports.setLayoutManager(manager);
+        recyclerViewSports.setHasFixedSize(true);
+
         initRecyclerViewList(view);
+
+        recyclerViewLeague = (RecyclerView) view.findViewById(R.id.section_allgames_header_rv_other);
+        StaggeredGridLayoutManager managerLeague = new StaggeredGridLayoutManager(
+                1, StaggeredGridLayoutManager.VERTICAL);
+
+        recyclerViewLeague.setLayoutManager(managerLeague);
+
+//        section_allgames_header_rv_other
+//        LiveAllGamesHeaderOtherAdapter adpterHeaderOther = new LiveAllGamesHeaderOtherAdapter;
+
         return view;
     }
 
