@@ -11,13 +11,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
+
 import io.github.luizgrp.sectionedrecyclerviewadapter.SectionedRecyclerViewAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.gmgspb.betbot.BetBotApp;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
-import ru.gmgspb.betbot.live.adapter.LiveItemListAdapter;
+import ru.gmgspb.betbot.live.view.LiveActivity;
 import ru.gmgspb.betbot.network.api.ApiClient;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
@@ -28,17 +32,20 @@ public class TabFragmentTwo extends Fragment {
     private static final String ARG_EXAMPLE = "this_a_constant";
     private String example_data;
     private List<RobobetListModel.DataBean> robobetList = new ArrayList<>();
-    private List<DataLiveChampionship.DataBean> championshipList = new ArrayList<>();
+    public List<DataLiveChampionship.DataBean> championshipList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecyclerView recyclerViewSports;
+    public RecyclerView recyclerViewSports;
     private List<DataLiveChampionshipList.DataBean.DataDetails> championshipListDetails = new ArrayList<>();
     public SectionedRecyclerViewAdapter sectionAdapter;
-    private ForecastApi api;
     private LiveGamesListAdapter adapter;
     private int sport_id;
     private String item_liga;
     private int item_sort;
     private int item_liga_pos;
+
+    @Inject
+    protected ForecastApi api;
+
 
     public static TabFragmentTwo newInstance(String example_argument) {
         TabFragmentTwo oneFragment = new TabFragmentTwo();
@@ -50,6 +57,7 @@ public class TabFragmentTwo extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        BetBotApp.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         example_data = getArguments().getString(ARG_EXAMPLE);
         api = ApiClient.getClient().create(ForecastApi.class);
@@ -64,17 +72,25 @@ public class TabFragmentTwo extends Fragment {
         recyclerViewSports.setLayoutManager(manager);
         recyclerViewSports.setHasFixedSize(true);
 
+
         initRecyclerViewList();
 
         recyclerView = (RecyclerView) view.findViewById(R.id.live_tablelive_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         sectionAdapter = new SectionedRecyclerViewAdapter();
-        getListHeader(1);
+
+
+        ((LiveActivity) getActivity()).getListHeader(1);
+//        addSectionToRecycler(); //TODO initialize section of RecyclerView
+//        List<DataLiveChampionship.DataBean> championshipListTemp = LiveRecyclerServices.getListHeader(1);
+
+
         recyclerView.setAdapter(sectionAdapter);
 
         return view;
     }
+
 
     private void initRecyclerViewList() {
         Call<RobobetListModel> robobetListModelCall = api.getSportList();
@@ -89,7 +105,7 @@ public class TabFragmentTwo extends Fragment {
                         RobobetListModel.DataBean bean = robobetList.get(position);
                         sectionAdapter.removeAllSections();
                         sectionAdapter.notifyDataSetChanged();
-                        getListHeader(bean.getId());
+                        ((LiveActivity) getActivity()).getListHeader(bean.getId());
                     }
                 });
                 recyclerViewSports.setAdapter(adapter);
@@ -100,7 +116,7 @@ public class TabFragmentTwo extends Fragment {
         });
     }
 
-    public void getListHeader(int sportId) {
+ /*   private void getListHeader(int sportId) {
 
         Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(sportId, "get_league");
         sport_id = sportId;
@@ -122,7 +138,7 @@ public class TabFragmentTwo extends Fragment {
         });
     }
 
-    public void getListItem(String liguaId, int sportId, int liguaPos) {
+    private void getListItem(String liguaId, int sportId, int liguaPos) {
 
         Call<DataLiveChampionshipList> matchi = api.getСhampionshipListGame(sportId, liguaId);
         item_liga = liguaId;
@@ -135,11 +151,11 @@ public class TabFragmentTwo extends Fragment {
                     for (DataLiveChampionshipList.DataBean detail : response.body().getData()) {
                         championshipListDetails = detail.getData();
                     }
-                    DataLiveChampionship.DataBean bean = championshipList.get(item_liga_pos);
-                    sectionAdapter.addSection(new LiveItemListAdapter(
-                            bean.getLeague(), championshipListDetails, item_sort));
-
-                    sectionAdapter.notifyDataSetChanged();
+//                    DataLiveChampionship.DataBean bean = championshipList.get(item_liga_pos);
+//                    sectionAdapter.addSection(new LiveItemListAdapter(
+//                            bean.getLeague(), championshipListDetails, item_sort));
+//
+//                    sectionAdapter.notifyDataSetChanged();
                 }
             }
 
@@ -149,9 +165,13 @@ public class TabFragmentTwo extends Fragment {
         });
     }
 
-    private void addSectionToRecycler(List<DataLiveChampionshipList.DataBean.DataDetails> listData, int sportId){
+    private void addSectionToRecycler(String league, List<DataLiveChampionshipList.DataBean.DataDetails> listData,
+                                      int sportId){
 
-//        sectionAdapter.addSection(new LiveItemListAdapter());
-    }
+        DataLiveChampionship.DataBean bean = championshipList.get(item_liga_pos);
+
+        sectionAdapter.addSection(new LiveItemListAdapter(bean.getLeague(), championshipListDetails, sportId));
+        sectionAdapter.notifyDataSetChanged();
+    }*/
 
 }

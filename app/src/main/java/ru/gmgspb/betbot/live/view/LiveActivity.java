@@ -1,14 +1,35 @@
 package ru.gmgspb.betbot.live.view;
 
+import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import ru.gmgspb.betbot.BetBotApp;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.common.BaseActivity;
+import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
+import ru.gmgspb.betbot.live.adapter.LiveItemListAdapter;
 import ru.gmgspb.betbot.live.adapter.LiveViewPagerAdapter;
 import ru.gmgspb.betbot.live.fragment.TabFragmentOne;
 import ru.gmgspb.betbot.live.fragment.TabFragmentThree;
 import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
+import ru.gmgspb.betbot.network.api.ApiClient;
+import ru.gmgspb.betbot.network.api.ForecastApi;
+import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
+import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
+import ru.gmgspb.betbot.network.entity.RobobetListModel;
 
 public class LiveActivity extends BaseActivity{
 
@@ -17,6 +38,20 @@ public class LiveActivity extends BaseActivity{
     private int[] tabIcons = {R.drawable.all_games_default,
                             R.drawable.live_default,
                             R.drawable.my_games_default};
+    private List<RobobetListModel.DataBean> robobetList = new ArrayList<>();
+
+    @Inject
+    protected ForecastApi api;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        api = ApiClient.getClient().create(ForecastApi.class);
+
+
+    }
+
 
     @Override
     protected int getLayoutId() {
@@ -35,6 +70,77 @@ public class LiveActivity extends BaseActivity{
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
 
+    }
+
+    private int sport_id;
+    List<DataLiveChampionship.DataBean> championshipList;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
+        BetBotApp.getAppComponent().inject(this);
+        super.onCreate(savedInstanceState, persistentState);
+    }
+
+    public void getListHeader(int sportId) {
+
+        Call<DataLiveChampionship> dataBeanCall = api.getСhampionship(sportId, "get_league");
+        sport_id = sportId;
+        dataBeanCall.enqueue(new Callback<DataLiveChampionship>() {
+            @Override
+            public void onResponse(Call<DataLiveChampionship> call, Response<DataLiveChampionship> response) {
+                if (response.body().getTotalevent() > 0) {
+                    championshipList = response.body().getData();
+                    int i = 0;
+                    for (DataLiveChampionship.DataBean getLigua : championshipList) {
+                        Toast.makeText(LiveActivity.this, getLigua.getLeague(), Toast.LENGTH_SHORT).show();
+                        getListItem(getLigua.getLeague_id(), sport_id, getLigua.getLeague());
+                        i++;
+                    }
+                }
+            }
+            @Override
+            public void onFailure(Call<DataLiveChampionship> call, Throwable t) {
+            }
+        });
+    }
+
+    private List<DataLiveChampionshipList.DataBean.DataDetails> championshipListDetails = new ArrayList<>();
+    private String item_liga;
+    private int item_sort;
+    private String item_liga_pos;
+
+
+    public void getListItem(String liguaId, int sportId, final String liguaName) {
+        final Fragment twoFragment = (Fragment) viewPager.getAdapter().instantiateItem(viewPager, 1);
+        Call<DataLiveChampionshipList> matchi = api.getСhampionshipListGame(sportId, liguaId);
+        item_liga = liguaId;
+        item_sort = sportId;
+        item_liga_pos = liguaName;
+        matchi.enqueue(new Callback<DataLiveChampionshipList>() {
+            @Override
+            public void onResponse(Call<DataLiveChampionshipList> call, Response<DataLiveChampionshipList> response) {
+                if (response.body().getTotalevent() > 0) {
+                    int i = 0;
+                    for (DataLiveChampionshipList.DataBean detail : response.body().getData()) {
+
+                        championshipListDetails = detail.getData();
+//                        Toast.makeText(LiveActivity.this, String.valueOf(i), Toast.LENGTH_SHORT).show();
+                        i++;
+                    }
+//                    DataLiveChampionship.DataBean bean = championshipList.get(liguaName);
+                    ((TabFragmentTwo) twoFragment).sectionAdapter.addSection(new LiveItemListAdapter(
+                     item_liga_pos, championshipListDetails, item_sort));
+
+
+                    ((TabFragmentTwo) twoFragment).sectionAdapter.notifyDataSetChanged();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<DataLiveChampionshipList> call, Throwable t) {
+            }
+        });
     }
 
     private void setupViewPager(ViewPager viewPager) {

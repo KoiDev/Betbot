@@ -2,10 +2,6 @@ package ru.gmgspb.betbot.common;
 
 import ru.gmgspb.betbot.R;
 
-/**
- * Created by koidev on 21/10/16.
- */
-
 public class ChoisePictureListGame {
 
     public static int getImage(String name){

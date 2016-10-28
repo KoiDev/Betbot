@@ -65,6 +65,21 @@ public class ServicesDataSource {
         return service;
     }
 
+    public boolean isGameFavorite (String gameId){
+        Cursor cursor = database.query(DbHelper.TABLE_GAMES,
+                allColums, DbHelper.GAME_ID + " + " + gameId, null,
+                null, null, null);
+        cursor.moveToFirst();
+        DataLiveChampionshipList.DataBean.DataDetails service = null;
+        service = cursorToService(cursor);
+        cursor.close();
+        if (service == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     public int countGames(){
         Cursor cursor = database.query(DbHelper.TABLE_GAMES, null, null, null, null, null, null);
         Integer count = cursor.getCount();

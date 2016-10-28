@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,7 +12,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.github.luizgrp.sectionedrecyclerviewadapter.StatelessSection;
 import ru.gmgspb.betbot.R;
-import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
 import ru.gmgspb.betbot.live.sections.helpersDB.ServicesDataSource;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
 
@@ -52,12 +50,18 @@ public class LiveItemListAdapter extends StatelessSection {
         itemHolder.txtCountHome.setText("  " + details.getRes1());
         itemHolder.txtCountAway.setText(details.getRes2());
         itemHolder.txtMin.setText(details.getLive()); //TODO this
+//        datasourceServices = new ServicesDataSource();
+//        datasourceServices.open();
+//        if (datasourceServices.isGameFavorite("ssdfsdf")) {
+//
+//        }
 
         itemHolder.imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //TODO errrrrrror
-                datasourceServices = new ServicesDataSource();
-                datasourceServices.open();
+                if (datasourceServices.isGameFavorite("ssdfsdf")) {
+
+                }
                 HashMap<String, String> paramService = new HashMap<>();
                 paramService.put("id", details.getId());
                 paramService.put("gameId", details.getId());
@@ -68,13 +72,14 @@ public class LiveItemListAdapter extends StatelessSection {
                 paramService.put("res1", details.getRes1());
                 paramService.put("res2", details.getRes2());
                 paramService.put("live", details.getLive());
-                datasourceServices.createService(paramService);
 
-                datasourceServices.close();
 
                 itemHolder.imgFavorite.setImageResource(R.drawable.star_live_selected); //TODO xml-selected!!!
             }
         });
+
+
+//        datasourceServices.close();
     }
 
     @Override
@@ -84,6 +89,7 @@ public class LiveItemListAdapter extends StatelessSection {
 
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
+        //DataLiveChampionshipList.DataBean.DataDetails league =
         HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
         headerHolder.tvTitle.setText(title);
     }

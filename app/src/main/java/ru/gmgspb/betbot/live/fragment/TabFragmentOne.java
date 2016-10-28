@@ -3,7 +3,6 @@ package ru.gmgspb.betbot.live.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
@@ -11,27 +10,27 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.inject.Inject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ru.gmgspb.betbot.BetBotApp;
 import ru.gmgspb.betbot.R;
-import ru.gmgspb.betbot.live.adapter.LiveAllGamesHeaderOtherAdapter;
 import ru.gmgspb.betbot.live.adapter.LiveGamesListAdapter;
 import ru.gmgspb.betbot.network.api.ApiClient;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
-import ru.gmgspb.betbot.network.repository.ForecastService;
 
 
-public class TabFragmentOne extends Fragment{
+public class TabFragmentOne extends Fragment {
 
     private static final String ARG_EXAMPLE = "this_a_constant";
     private String example_data;
 
-    private ForecastApi api;
+    @Inject
+    protected ForecastApi api;
+
     private RecyclerView recyclerViewSports;
     private RecyclerView recyclerViewLeague;
 
@@ -49,7 +48,9 @@ public class TabFragmentOne extends Fragment{
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
+        BetBotApp.getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
+
         example_data = getArguments().getString(ARG_EXAMPLE);
         api = ApiClient.getClient().create(ForecastApi.class);
     }
@@ -71,8 +72,7 @@ public class TabFragmentOne extends Fragment{
 
         recyclerViewLeague.setLayoutManager(managerLeague);
 
-//        section_allgames_header_rv_other
-//        LiveAllGamesHeaderOtherAdapter adpterHeaderOther = new LiveAllGamesHeaderOtherAdapter;
+
 
         return view;
     }
@@ -84,7 +84,7 @@ public class TabFragmentOne extends Fragment{
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
 
-        ForecastApi api = ForecastService.getInstance(view.getContext()).getApi();
+        ForecastApi api = BetBotApp.getAppComponent().getForecastApi();
         final Call<RobobetListModel> robobetListModelCall = api.getSportList();
 
         robobetListModelCall.enqueue(new Callback<RobobetListModel>() {

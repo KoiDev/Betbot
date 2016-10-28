@@ -7,12 +7,12 @@ import android.view.MenuItem;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import ru.gmgspb.betbot.BetBotApp;
 import ru.gmgspb.betbot.forecast.adapter.ForecastAdapter;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.DataForecast;
 import ru.gmgspb.betbot.R;
 import ru.gmgspb.betbot.common.BaseActivity;
-import ru.gmgspb.betbot.network.repository.ForecastService;
 
 public class ForecastsSearchActivity extends BaseActivity {
     ForecastsCustomDialog cd;
@@ -56,7 +56,7 @@ public class ForecastsSearchActivity extends BaseActivity {
                 new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(mStaggeredGridLayoutManager);
 
-        ForecastApi service = ForecastService.getInstance(getBaseContext()).getApi();
+        ForecastApi service = BetBotApp.getAppComponent().getForecastApi();
         final Call<DataForecast> dataForecastCall = service.getListForecast();
 
         dataForecastCall.enqueue(new Callback<DataForecast>() {
