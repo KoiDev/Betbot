@@ -25,20 +25,20 @@ import ru.gmgspb.betbot.live.adapter.LiveViewPagerAdapter;
 import ru.gmgspb.betbot.live.fragment.TabFragmentOne;
 import ru.gmgspb.betbot.live.fragment.TabFragmentThree;
 import ru.gmgspb.betbot.live.fragment.TabFragmentTwo;
+import ru.gmgspb.betbot.live.sections.helpersDB.ServicesDataSource;
 import ru.gmgspb.betbot.network.api.ApiClient;
 import ru.gmgspb.betbot.network.api.ForecastApi;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
 import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
 import ru.gmgspb.betbot.network.entity.RobobetListModel;
 
-public class LiveActivity extends BaseActivity{
+public class LiveActivity extends BaseActivity {
 
     private ViewPager viewPager;
     private TabLayout tabLayout;
     private int[] tabIcons = {R.drawable.all_games_default,
-                            R.drawable.live_default,
-                            R.drawable.my_games_default};
-    private List<RobobetListModel.DataBean> robobetList = new ArrayList<>();
+            R.drawable.live_default,
+            R.drawable.my_games_default};
 
     @Inject
     protected ForecastApi api;
@@ -46,9 +46,9 @@ public class LiveActivity extends BaseActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        BetBotApp.getAppComponent().inject(this);   //binding Dagger2
         super.onCreate(savedInstanceState);
-        api = ApiClient.getClient().create(ForecastApi.class);
-
+        api = ApiClient.getClient().create(ForecastApi.class);  //injection Dagger2
 
     }
 
@@ -69,17 +69,10 @@ public class LiveActivity extends BaseActivity{
         tabLayout.getTabAt(0).setIcon(tabIcons[0]);
         tabLayout.getTabAt(1).setIcon(tabIcons[1]);
         tabLayout.getTabAt(2).setIcon(tabIcons[2]);
-
     }
 
     private int sport_id;
-    List<DataLiveChampionship.DataBean> championshipList;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        BetBotApp.getAppComponent().inject(this);
-        super.onCreate(savedInstanceState, persistentState);
-    }
+    public List<DataLiveChampionship.DataBean> championshipList;
 
     public void getListHeader(int sportId) {
 
@@ -90,14 +83,12 @@ public class LiveActivity extends BaseActivity{
             public void onResponse(Call<DataLiveChampionship> call, Response<DataLiveChampionship> response) {
                 if (response.body().getTotalevent() > 0) {
                     championshipList = response.body().getData();
-                    int i = 0;
-                    for (DataLiveChampionship.DataBean getLigua : championshipList) {
-                        Toast.makeText(LiveActivity.this, getLigua.getLeague(), Toast.LENGTH_SHORT).show();
-                        getListItem(getLigua.getLeague_id(), sport_id, getLigua.getLeague());
-                        i++;
+                    for (DataLiveChampionship.DataBean getLeague : championshipList) {
+                        getListItem(getLeague.getLeague_id(), sport_id, getLeague.getLeague());
                     }
                 }
             }
+
             @Override
             public void onFailure(Call<DataLiveChampionship> call, Throwable t) {
             }
@@ -105,35 +96,30 @@ public class LiveActivity extends BaseActivity{
     }
 
     private List<DataLiveChampionshipList.DataBean.DataDetails> championshipListDetails = new ArrayList<>();
-    private String item_liga;
     private int item_sort;
     private String item_liga_pos;
 
 
     public void getListItem(String liguaId, int sportId, final String liguaName) {
         final Fragment twoFragment = (Fragment) viewPager.getAdapter().instantiateItem(viewPager, 1);
+
         Call<DataLiveChampionshipList> matchi = api.getСhampionshipListGame(sportId, liguaId);
-        item_liga = liguaId;
         item_sort = sportId;
         item_liga_pos = liguaName;
         matchi.enqueue(new Callback<DataLiveChampionshipList>() {
             @Override
             public void onResponse(Call<DataLiveChampionshipList> call, Response<DataLiveChampionshipList> response) {
                 if (response.body().getTotalevent() > 0) {
-                    int i = 0;
                     for (DataLiveChampionshipList.DataBean detail : response.body().getData()) {
-
                         championshipListDetails = detail.getData();
-//                        Toast.makeText(LiveActivity.this, String.valueOf(i), Toast.LENGTH_SHORT).show();
-                        i++;
                     }
-//                    DataLiveChampionship.DataBean bean = championshipList.get(liguaName);
                     ((TabFragmentTwo) twoFragment).sectionAdapter.addSection(new LiveItemListAdapter(
-                     item_liga_pos, championshipListDetails, item_sort));
-
-
+                            item_liga_pos, championshipListDetails, item_sort));
                     ((TabFragmentTwo) twoFragment).sectionAdapter.notifyDataSetChanged();
 
+//                    ((TabFragmentOne) oneFragment).sectionAdapter.addSection(new LiveItemListAdapter(
+//                            item_liga_pos, championshipListDetails, item_sort));
+//                    ((TabFragmentOne) oneFragment).sectionAdapter.notifyDataSetChanged();
                 }
             }
 

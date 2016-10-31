@@ -50,35 +50,30 @@ public class LiveItemListAdapter extends StatelessSection {
         itemHolder.txtCountHome.setText("  " + details.getRes1());
         itemHolder.txtCountAway.setText(details.getRes2());
         itemHolder.txtMin.setText(details.getLive()); //TODO this
+
 //        datasourceServices = new ServicesDataSource();
 //        datasourceServices.open();
-//        if (datasourceServices.isGameFavorite("ssdfsdf")) {
 //
-//        }
-
-        itemHolder.imgFavorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { //TODO errrrrrror
-                if (datasourceServices.isGameFavorite("ssdfsdf")) {
-
-                }
-                HashMap<String, String> paramService = new HashMap<>();
-                paramService.put("id", details.getId());
-                paramService.put("gameId", details.getId());
-                paramService.put("league", details.getLeague());
-                paramService.put("data", details.getDate());
-                paramService.put("home", details.getHome());
-                paramService.put("away", details.getAway());
-                paramService.put("res1", details.getRes1());
-                paramService.put("res2", details.getRes2());
-                paramService.put("live", details.getLive());
-
-
-                itemHolder.imgFavorite.setImageResource(R.drawable.star_live_selected); //TODO xml-selected!!!
-            }
-        });
-
-
+//        itemHolder.imgFavorite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                HashMap<String, String> paramService = new HashMap<>();
+//                paramService.put("id", details.getId());
+//                paramService.put("gameId", details.getId());
+//                paramService.put("league", details.getLeague());
+//                paramService.put("data", details.getDate());
+//                paramService.put("home", details.getHome());
+//                paramService.put("away", details.getAway());
+//                paramService.put("res1", details.getRes1());
+//                paramService.put("res2", details.getRes2());
+//                paramService.put("live", details.getLive());
+//
+//
+//                itemHolder.imgFavorite.setImageResource(R.drawable.star_live_selected);
+//            }
+//        });
+//
 //        datasourceServices.close();
     }
 
@@ -89,7 +84,6 @@ public class LiveItemListAdapter extends StatelessSection {
 
     @Override
     public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
-        //DataLiveChampionshipList.DataBean.DataDetails league =
         HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
         headerHolder.tvTitle.setText(title);
     }
@@ -125,8 +119,6 @@ public class LiveItemListAdapter extends StatelessSection {
             super(view);
             rootView = view;
             ButterKnife.bind(this, view);
-
-
         }
 
 }

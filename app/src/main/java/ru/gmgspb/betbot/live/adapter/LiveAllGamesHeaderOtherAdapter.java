@@ -13,17 +13,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.gmgspb.betbot.R;
-import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
+import ru.gmgspb.betbot.network.entity.DataLiveChampionship;
 
 public class LiveAllGamesHeaderOtherAdapter extends RecyclerView.Adapter<LiveAllGamesHeaderOtherAdapter.LiveAllGamesHeaderOtherViewHolder>{
 
 
-    List<DataLiveChampionshipList.DataBean> list;
-    int myId;
+    List<DataLiveChampionship.DataBean> list;
 
-    public LiveAllGamesHeaderOtherAdapter(List<DataLiveChampionshipList.DataBean> list, int myId) {
+    public LiveAllGamesHeaderOtherAdapter(List<DataLiveChampionship.DataBean> list) {
         this.list = list;
-        this.myId = myId;
+
     }
 
     @Override
@@ -36,8 +35,9 @@ public class LiveAllGamesHeaderOtherAdapter extends RecyclerView.Adapter<LiveAll
 
     @Override
     public void onBindViewHolder(LiveAllGamesHeaderOtherViewHolder holder, int position) {
-        DataLiveChampionshipList.DataBean dataBean = list.get(position);
-        holder.txtLeague.setText(dataBean.getLeague());
+        DataLiveChampionship.DataBean dataBean = list.get(position);
+
+        holder.txtLeagueNew.setText(dataBean.getLeague());
     }
 
     @Override
@@ -46,16 +46,15 @@ public class LiveAllGamesHeaderOtherAdapter extends RecyclerView.Adapter<LiveAll
     }
 
     public class LiveAllGamesHeaderOtherViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.live_all_games_favorite_ligua_txt)
-        TextView txtLeague;
-        @BindView(R.id.live_all_games_favorite_count)
+        @BindView(R.id.live_all_games_detail_header_txt)
+        TextView txtLeagueNew;
+        @BindView(R.id.live_all_games_count)
         TextView txtCountGames;
         @BindView(R.id.live_all_games_favorite_img)
         ImageView imgLogoLeague;
 
         public LiveAllGamesHeaderOtherViewHolder(View itemView) {
             super(itemView);
-
             ButterKnife.bind(this, itemView);
         }
     }

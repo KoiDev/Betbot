@@ -22,7 +22,6 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
 
     private List<RobobetListModel.DataBean> list;
     int mCurrentItemPosition = -1;
-    int previous=-1;
     Boolean itemRepeat = false;
 
     public LiveGamesListAdapter(List<RobobetListModel.DataBean> list, LiveGamesListAdapterListener listener) {
@@ -58,15 +57,7 @@ public class LiveGamesListAdapter extends RecyclerView.Adapter<LiveGamesListAdap
             holder.imgSelect.setVisibility(View.VISIBLE);
         }
 
-        //так я определяю первый элемент с помощью новой переменной
-        /*if (previous == -1){
-            holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
-            holder.imgSelect.setVisibility(View.VISIBLE);
-            mCurrentItemPosition = 0;
-            previous = 0;
-
-            //а это чудо-обработка DoubleClick, в LiveGamesViewHolder продолжение магии
-        }else */if (itemRepeat == true){
+        if (itemRepeat == true){
             holder.txtGame.setTextColor(Color.parseColor("#ffffff"));
             holder.imgSelect.setVisibility(View.VISIBLE);
             itemRepeat = false;

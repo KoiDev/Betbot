@@ -1,17 +1,20 @@
 package ru.gmgspb.betbot.live.sections.helpersDB;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import ru.gmgspb.betbot.live.sections.modeldb.DbFavoritesModel;
 import ru.gmgspb.betbot.live.sections.localDB.DbHelper;
-import ru.gmgspb.betbot.network.entity.DataLiveChampionshipList;
+import ru.gmgspb.betbot.live.view.LiveActivity;
 
 public class ServicesDataSource {
     private SQLiteDatabase database;
@@ -30,17 +33,19 @@ public class ServicesDataSource {
                     dbHelper.LIVE
             };
 
-    public void open() throws SQLException{
+    public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
+        Log.d("TAG", "--- onOpen database ---");
     }
 
-    public void close(){
+    public void close() {
         dbHelper.close();
+        Log.d("TAG", "--- onClose database ---");
     }
 
-    public DataLiveChampionshipList.DataBean.DataDetails createService(HashMap<String, String> paramService) {
+    public DbFavoritesModel createService(HashMap<String, String> paramService) {
         ContentValues values = new ContentValues();
-        for (Map.Entry<String, String> entry : paramService.entrySet()){
+        for (Map.Entry<String, String> entry : paramService.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
             values.put(key, value);
@@ -51,26 +56,26 @@ public class ServicesDataSource {
                 allColums, DbHelper.GAME_DB_ID + " = " + insertId, null,
                 null, null, null); //TODO repair this
         cursor.moveToFirst();
-        DataLiveChampionshipList.DataBean.DataDetails newService = cursorToService(cursor);
+        DbFavoritesModel newService = cursorToService(cursor);
         return newService;
     }
 
-    public DataLiveChampionshipList.DataBean.DataDetails getGameByGame_id(String gameId){
+    public DbFavoritesModel getGameByGame_id(String gameId) {
         Cursor cursor = database.query(DbHelper.TABLE_GAMES,
                 allColums, DbHelper.GAME_ID + " + " + gameId, null,
                 null, null, null);
         cursor.moveToFirst();
-        DataLiveChampionshipList.DataBean.DataDetails service = cursorToService(cursor);
+        DbFavoritesModel service = cursorToService(cursor);
         cursor.close();
         return service;
     }
 
-    public boolean isGameFavorite (String gameId){
+    public boolean isGameFavorite(String gameId) {
         Cursor cursor = database.query(DbHelper.TABLE_GAMES,
                 allColums, DbHelper.GAME_ID + " + " + gameId, null,
                 null, null, null);
         cursor.moveToFirst();
-        DataLiveChampionshipList.DataBean.DataDetails service = null;
+        DbFavoritesModel service = null;
         service = cursorToService(cursor);
         cursor.close();
         if (service == null) {
@@ -80,24 +85,24 @@ public class ServicesDataSource {
         }
     }
 
-    public int countGames(){
+    public int countGames() {
         Cursor cursor = database.query(DbHelper.TABLE_GAMES, null, null, null, null, null, null);
         Integer count = cursor.getCount();
         cursor.close();
         return count;
     }
 
-    public void deleteAllServices(){
+    public void deleteAllServices() {
         database.delete(DbHelper.TABLE_GAMES, null, null);
     }
 
-    public List<DataLiveChampionshipList.DataBean.DataDetails> getAllGames(){
-        List<DataLiveChampionshipList.DataBean.DataDetails> services = new ArrayList<>();
+    public List<DbFavoritesModel> getAllGames() {
+        List<DbFavoritesModel> services = new ArrayList<>();
         Cursor cursor = database.query(DbHelper.TABLE_GAMES, allColums,
                 null, null, null, null, null);
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()){
-            DataLiveChampionshipList.DataBean.DataDetails service = cursorToService(cursor);
+        while (!cursor.isAfterLast()) {
+            DbFavoritesModel service = cursorToService(cursor);
             services.add(service);
             cursor.moveToNext();
         }
@@ -105,12 +110,12 @@ public class ServicesDataSource {
         return services;
     }
 
-    private DataLiveChampionshipList.DataBean.DataDetails cursorToService(Cursor cursor) {
+    private DbFavoritesModel cursorToService(Cursor cursor) {
 
-        DataLiveChampionshipList.DataBean.DataDetails
-                serviceDetails = new DataLiveChampionshipList.DataBean.DataDetails();
-        serviceDetails.setId(cursor.getString(0)); //TODO not correct
-        serviceDetails.setId(cursor.getString(1));
+        DbFavoritesModel
+                serviceDetails = new DbFavoritesModel();
+        serviceDetails.setId(cursor.getInt(0));
+        serviceDetails.setIdGame(cursor.getString(1));
         serviceDetails.setLeague(cursor.getString(2));
         serviceDetails.setSport(cursor.getString(3));
         serviceDetails.setDate(cursor.getString(4));

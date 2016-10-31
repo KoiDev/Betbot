@@ -18,31 +18,8 @@
 //    public static final String SERVICES_LAT = "lat";
 //    public static final String SERVICES_LNG = "lng";
 //    public static final String SERVICES_ORDERING = "ordering";
-///*
-//   "data": [
-//    {
-//        "id": "3343009",
-//            "league": "Австрия. Кубок. 1/8 финала",
-//            "logo_league": "http://vprognoze.ru/uploads/logo_country/0.png",
-//            "data": [
-//        {
-//            "tid": "4674759",
-//                "g_id": "2149605",
-//                "league": "Австрия. Кубок. 1/8 финала",
-//                "sport": "Футбол",
-//                "fullresult": "",
-//                "date": "1477505700",
-//                "home": "Блау-Вайс Линц",
-//                "away": "Рапид Вена",
-//                "res1": "0",
-//                "res2": "0",
-//                "id": "97e03cf4a1b0ba219c70c671a1580df9",
-//                "league_id": "3343009",
-//                "end": "0",
-//                "live": "0",
-//                "stat": "1"
-//        }
-//*/
+//
+//
 //    final String LOG_TAG = "myLogs";
 //
 //    public DbHelper(Context context) {
@@ -188,7 +165,7 @@
 //
 //
 //    datasourceServices = new ServicesDataSource(this);
-//datasourceServices.open();
+//    datasourceServices.open();
 //
 //        HashMap<String, String> paramService = new HashMap<>();
 //        paramService.put("server_id", service.getServer_id().toString());
